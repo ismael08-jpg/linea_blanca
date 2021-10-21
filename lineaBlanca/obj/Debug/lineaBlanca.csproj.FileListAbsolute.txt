@@ -14,3 +14,7 @@ C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csp
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.CopyComplete
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.exe
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.pdb
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.CreditoView.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.DashboardView.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.Main.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.ProductoView.resources

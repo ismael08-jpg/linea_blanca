@@ -108,11 +108,29 @@
     <Compile Include="usuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="vistas\CreditoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="vistas\CreditoView.Designer.cs">
+      <DependentUpon>CreditoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\DashboardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="vistas\DashboardView.Designer.cs">
+      <DependentUpon>DashboardView.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="vistas\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\ProductoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="vistas\ProductoView.Designer.cs">
+      <DependentUpon>ProductoView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -127,6 +145,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="vistas\CreditoView.resx">
+      <DependentUpon>CreditoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\DashboardView.resx">
+      <DependentUpon>DashboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\ProductoView.resx">
+      <DependentUpon>ProductoView.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
