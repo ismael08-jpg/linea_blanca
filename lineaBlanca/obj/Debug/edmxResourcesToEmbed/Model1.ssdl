@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="linea_blancaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="dui" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nit" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="credito">
+    <Key>
+      <PropertyRef Name="id_credito" />
+    </Key>
+    <Property Name="id_credito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="interes" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="fecha_compra" Type="date" />
+    <Property Name="total" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuota">
+    <Key>
+      <PropertyRef Name="id_cuota" />
+    </Key>
+    <Property Name="id_cuota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="valor" Type="money" Nullable="false" />
+    <Property Name="fecha_Prox_pago" Type="date" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+    <Property Name="id_credito" Type="int" Nullable="false" />
+    <Property Name="id_pago" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pago">
+    <Key>
+      <PropertyRef Name="id_pago" />
+    </Key>
+    <Property Name="id_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_pago" Type="date" />
+    <Property Name="monto" Type="money" Nullable="false" />
+    <Property Name="id_credito" Type="int" Nullable="false" />
+    <Property Name="total" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="precio" Type="money" Nullable="false" />
+    <Property Name="id_credito" Type="int" />
+    <Property Name="id_tipo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo">
+    <Key>
+      <PropertyRef Name="id_tipo" />
+    </Key>
+    <Property Name="id_tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_categoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cargo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pass_word" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="rol" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_Categoriaid_categoria">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tipo" Type="Self.tipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="tipo">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Clienteid_cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="credito" Type="Self.credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="credito">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Creditoid_credito">
+    <End Role="credito" Type="Self.credito" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="credito">
+        <PropertyRef Name="id_credito" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="id_credito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_credito_pago">
+    <End Role="credito" Type="Self.credito" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="credito">
+        <PropertyRef Name="id_credito" />
+      </Principal>
+      <Dependent Role="cuota">
+        <PropertyRef Name="id_credito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Pagoid_pago">
+    <End Role="pago" Type="Self.pago" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pago">
+        <PropertyRef Name="id_pago" />
+      </Principal>
+      <Dependent Role="cuota">
+        <PropertyRef Name="id_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipo_credito">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="id_tipo" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="id_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Usuarioid_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="credito" Type="Self.credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="credito">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="linea_blancaModelStoreContainer">
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="credito" EntityType="Self.credito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuota" EntityType="Self.cuota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pago" EntityType="Self.pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo" EntityType="Self.tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_Categoriaid_categoria" Association="Self.fk_Categoriaid_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="tipo" EntitySet="tipo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Clienteid_cliente" Association="Self.fk_Clienteid_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="credito" EntitySet="credito" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Creditoid_credito" Association="Self.fk_Creditoid_credito">
+      <End Role="credito" EntitySet="credito" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_credito_pago" Association="Self.fk_id_credito_pago">
+      <End Role="credito" EntitySet="credito" />
+      <End Role="cuota" EntitySet="cuota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Pagoid_pago" Association="Self.fk_Pagoid_pago">
+      <End Role="pago" EntitySet="pago" />
+      <End Role="cuota" EntitySet="cuota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipo_credito" Association="Self.fk_tipo_credito">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Usuarioid_usuario" Association="Self.fk_Usuarioid_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="credito" EntitySet="credito" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

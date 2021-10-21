@@ -1,0 +1,16 @@
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\lineaBlanca.exe.config
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\lineaBlanca.exe
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\lineaBlanca.pdb
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\EntityFramework.dll
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\Guna.UI2.dll
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\EntityFramework.xml
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.AssemblyReference.cache
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.Login.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.Properties.Resources.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.GenerateResource.cache
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.CoreCompileInputs.cache
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.CopyComplete
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.exe
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.pdb

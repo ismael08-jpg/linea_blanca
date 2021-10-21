@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="linea_blancaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="dui" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nit" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="credito">
+          <Key>
+            <PropertyRef Name="id_credito" />
+          </Key>
+          <Property Name="id_credito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="interes" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="fecha_compra" Type="date" />
+          <Property Name="total" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cuota">
+          <Key>
+            <PropertyRef Name="id_cuota" />
+          </Key>
+          <Property Name="id_cuota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="money" Nullable="false" />
+          <Property Name="fecha_Prox_pago" Type="date" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+          <Property Name="id_credito" Type="int" Nullable="false" />
+          <Property Name="id_pago" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_pago" Type="date" />
+          <Property Name="monto" Type="money" Nullable="false" />
+          <Property Name="id_credito" Type="int" Nullable="false" />
+          <Property Name="total" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="precio" Type="money" Nullable="false" />
+          <Property Name="id_credito" Type="int" />
+          <Property Name="id_tipo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo">
+          <Key>
+            <PropertyRef Name="id_tipo" />
+          </Key>
+          <Property Name="id_tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_categoria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cargo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pass_word" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rol" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Categoriaid_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tipo" Type="Self.tipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="tipo">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Clienteid_cliente">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="credito" Type="Self.credito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="credito">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Creditoid_credito">
+          <End Role="credito" Type="Self.credito" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="credito">
+              <PropertyRef Name="id_credito" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="id_credito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_credito_pago">
+          <End Role="credito" Type="Self.credito" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="credito">
+              <PropertyRef Name="id_credito" />
+            </Principal>
+            <Dependent Role="cuota">
+              <PropertyRef Name="id_credito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pagoid_pago">
+          <End Role="pago" Type="Self.pago" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pago">
+              <PropertyRef Name="id_pago" />
+            </Principal>
+            <Dependent Role="cuota">
+              <PropertyRef Name="id_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_credito">
+          <End Role="tipo" Type="Self.tipo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo">
+              <PropertyRef Name="id_tipo" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Usuarioid_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="credito" Type="Self.credito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="credito">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="linea_blancaModelStoreContainer">
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="credito" EntityType="Self.credito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cuota" EntityType="Self.cuota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pago" EntityType="Self.pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo" EntityType="Self.tipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Categoriaid_categoria" Association="Self.fk_Categoriaid_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="tipo" EntitySet="tipo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Clienteid_cliente" Association="Self.fk_Clienteid_cliente">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="credito" EntitySet="credito" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Creditoid_credito" Association="Self.fk_Creditoid_credito">
+            <End Role="credito" EntitySet="credito" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_credito_pago" Association="Self.fk_id_credito_pago">
+            <End Role="credito" EntitySet="credito" />
+            <End Role="cuota" EntitySet="cuota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pagoid_pago" Association="Self.fk_Pagoid_pago">
+            <End Role="pago" EntitySet="pago" />
+            <End Role="cuota" EntitySet="cuota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_credito" Association="Self.fk_tipo_credito">
+            <End Role="tipo" EntitySet="tipo" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Usuarioid_usuario" Association="Self.fk_Usuarioid_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="credito" EntitySet="credito" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="linea_blancaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tipo" Relationship="Self.fk_Categoriaid_categoria" FromRole="categoria" ToRole="tipo" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dui" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="credito" Relationship="Self.fk_Clienteid_cliente" FromRole="cliente" ToRole="credito" />
+        </EntityType>
+        <EntityType Name="credito">
+          <Key>
+            <PropertyRef Name="id_credito" />
+          </Key>
+          <Property Name="id_credito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="interes" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="fecha_compra" Type="DateTime" Precision="0" />
+          <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_Clienteid_cliente" FromRole="credito" ToRole="cliente" />
+          <NavigationProperty Name="producto" Relationship="Self.fk_Creditoid_credito" FromRole="credito" ToRole="producto" />
+          <NavigationProperty Name="cuota" Relationship="Self.fk_id_credito_pago" FromRole="credito" ToRole="cuota" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_Usuarioid_usuario" FromRole="credito" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="cuota">
+          <Key>
+            <PropertyRef Name="id_cuota" />
+          </Key>
+          <Property Name="id_cuota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="fecha_Prox_pago" Type="DateTime" Precision="0" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_credito" Type="Int32" Nullable="false" />
+          <Property Name="id_pago" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="credito" Relationship="Self.fk_id_credito_pago" FromRole="cuota" ToRole="credito" />
+          <NavigationProperty Name="pago" Relationship="Self.fk_Pagoid_pago" FromRole="cuota" ToRole="pago" />
+        </EntityType>
+        <EntityType Name="pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="id_credito" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="cuota" Relationship="Self.fk_Pagoid_pago" FromRole="pago" ToRole="cuota" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="id_credito" Type="Int32" />
+          <Property Name="id_tipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="credito" Relationship="Self.fk_Creditoid_credito" FromRole="producto" ToRole="credito" />
+          <NavigationProperty Name="tipo" Relationship="Self.fk_tipo_credito" FromRole="producto" ToRole="tipo" />
+        </EntityType>
+        <EntityType Name="tipo">
+          <Key>
+            <PropertyRef Name="id_tipo" />
+          </Key>
+          <Property Name="id_tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_categoria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categoria" Relationship="Self.fk_Categoriaid_categoria" FromRole="tipo" ToRole="categoria" />
+          <NavigationProperty Name="producto" Relationship="Self.fk_tipo_credito" FromRole="tipo" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass_word" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="credito" Relationship="Self.fk_Usuarioid_usuario" FromRole="usuario" ToRole="credito" />
+        </EntityType>
+        <Association Name="fk_Categoriaid_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tipo" Type="Self.tipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="tipo">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Clienteid_cliente">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="credito" Type="Self.credito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="credito">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Creditoid_credito">
+          <End Role="credito" Type="Self.credito" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="credito">
+              <PropertyRef Name="id_credito" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="id_credito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_credito_pago">
+          <End Role="credito" Type="Self.credito" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="credito">
+              <PropertyRef Name="id_credito" />
+            </Principal>
+            <Dependent Role="cuota">
+              <PropertyRef Name="id_credito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Usuarioid_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="credito" Type="Self.credito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="credito">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pagoid_pago">
+          <End Role="pago" Type="Self.pago" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pago">
+              <PropertyRef Name="id_pago" />
+            </Principal>
+            <Dependent Role="cuota">
+              <PropertyRef Name="id_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_credito">
+          <End Role="tipo" Type="Self.tipo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo">
+              <PropertyRef Name="id_tipo" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="linea_blancaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categoria" EntityType="Self.categoria" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="credito" EntityType="Self.credito" />
+          <EntitySet Name="cuota" EntityType="Self.cuota" />
+          <EntitySet Name="pago" EntityType="Self.pago" />
+          <EntitySet Name="producto" EntityType="Self.producto" />
+          <EntitySet Name="tipo" EntityType="Self.tipo" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="fk_Categoriaid_categoria" Association="Self.fk_Categoriaid_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="tipo" EntitySet="tipo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Clienteid_cliente" Association="Self.fk_Clienteid_cliente">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="credito" EntitySet="credito" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Creditoid_credito" Association="Self.fk_Creditoid_credito">
+            <End Role="credito" EntitySet="credito" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_credito_pago" Association="Self.fk_id_credito_pago">
+            <End Role="credito" EntitySet="credito" />
+            <End Role="cuota" EntitySet="cuota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Usuarioid_usuario" Association="Self.fk_Usuarioid_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="credito" EntitySet="credito" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pagoid_pago" Association="Self.fk_Pagoid_pago">
+            <End Role="pago" EntitySet="pago" />
+            <End Role="cuota" EntitySet="cuota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_credito" Association="Self.fk_tipo_credito">
+            <End Role="tipo" EntitySet="tipo" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="linea_blancaModelStoreContainer" CdmEntityContainer="linea_blancaEntities">
+          <EntitySetMapping Name="categoria">
+            <EntityTypeMapping TypeName="linea_blancaModel.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="linea_blancaModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="dui" ColumnName="dui" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="credito">
+            <EntityTypeMapping TypeName="linea_blancaModel.credito">
+              <MappingFragment StoreEntitySet="credito">
+                <ScalarProperty Name="id_credito" ColumnName="id_credito" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="interes" ColumnName="interes" />
+                <ScalarProperty Name="fecha_compra" ColumnName="fecha_compra" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cuota">
+            <EntityTypeMapping TypeName="linea_blancaModel.cuota">
+              <MappingFragment StoreEntitySet="cuota">
+                <ScalarProperty Name="id_cuota" ColumnName="id_cuota" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="fecha_Prox_pago" ColumnName="fecha_Prox_pago" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_credito" ColumnName="id_credito" />
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pago">
+            <EntityTypeMapping TypeName="linea_blancaModel.pago">
+              <MappingFragment StoreEntitySet="pago">
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="id_credito" ColumnName="id_credito" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto">
+            <EntityTypeMapping TypeName="linea_blancaModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="id_credito" ColumnName="id_credito" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo">
+            <EntityTypeMapping TypeName="linea_blancaModel.tipo">
+              <MappingFragment StoreEntitySet="tipo">
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="linea_blancaModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="pass_word" ColumnName="pass_word" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
