@@ -38,7 +38,7 @@ namespace lineaBlanca.vistas
             txtTotal.ReadOnly = true;
             txtCuota.ReadOnly = true;
 
-            numPagos.Enabled = false;
+            comboCuotas.Enabled = false;
            
 
             txtInteres.Enabled = false;
@@ -59,7 +59,7 @@ namespace lineaBlanca.vistas
             txtInteres.Enabled = true;
             comboCliente.Enabled = true;
             comboProducto.Enabled = true;
-            numPagos.Enabled = true;
+            comboCuotas.Enabled = true;
            
 
             clear();
@@ -68,16 +68,14 @@ namespace lineaBlanca.vistas
         private void clear()
         {
             total = 0;
-            txtInteres.Clear();
+            txtInteres.Text = "51" ;
             txtTotal.Clear();
             comboCliente.SelectedIndex = 1; //Items.Clear()
             productos.Clear(); //limpiar lista de productos
             dgbProductos.DataSource = null;
             dgbProductos.Enabled = true;
             txtCuota.Clear();
-            numPagos.Text = "2";
-
-
+            comboCuotas.SelectedIndex = 0;
         }
 
         public void fillDatagrid(bool isFiltering = false)
@@ -120,8 +118,8 @@ namespace lineaBlanca.vistas
                 credito.interes = decimal.Parse(txtInteres.Text);
                 credito.fecha_compra = now;
                 credito.cuota = decimal.Parse(txtCuota.Text);
-                credito.cantidad_cuotas = int.Parse(numPagos.Text);
-                credito.total = total;
+                credito.cantidad_cuotas = int.Parse(comboCuotas.Text);
+                credito.total = total + total * (decimal.Parse(txtInteres.Text)/100);
                 contexto.credito.Add(credito);
 
                 if (contexto.SaveChanges() == 1)
@@ -157,8 +155,8 @@ namespace lineaBlanca.vistas
                 cr.interes = decimal.Parse(txtInteres.Text);
                 cr.id_cliente = int.Parse(comboCliente.SelectedValue.ToString());
                 cr.cuota = decimal.Parse(txtCuota.Text);
-                cr.cantidad_cuotas = int.Parse(numPagos.Text);
-                cr.total = decimal.Parse(txtTotal.Text);
+                cr.cantidad_cuotas = int.Parse(comboCuotas.Text);
+                cr.total = total + total * (decimal.Parse(txtInteres.Text)/100);
 
                 if (contexto.SaveChanges() == 1)
                 {
@@ -258,7 +256,20 @@ namespace lineaBlanca.vistas
         public void updateTotal(decimal price)
         {
             total = total + price;
-            txtTotal.Text = total.ToString();
+            if (txtInteres.Text != "")
+            {
+                txtTotal.Text = (Math.Round(total + total * (decimal.Parse(txtInteres.Text) / 100), 2)).ToString();
+            }
+        }
+
+        void actualizarTotal()
+        {
+            if(txtInteres.Text != "")
+            {
+                txtTotal.Text = (Math.Round(
+                (total + total * (decimal.Parse(txtInteres.Text) / 100)), 2
+                )).ToString();
+            }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -288,7 +299,7 @@ namespace lineaBlanca.vistas
             txtInteres.Enabled = true;
             comboCliente.Enabled = true;
             comboProducto.Enabled = true;
-            numPagos.Enabled = true;
+            comboCuotas.Enabled = true;
             dgbProductos.Enabled = true;
 
             //Fill products table
@@ -306,7 +317,7 @@ namespace lineaBlanca.vistas
             txtInteres.Text = dgbCreditos.SelectedRows[0].Cells[3].Value.ToString();
             comboCliente.Text = ((cliente)dgbCreditos.SelectedRows[0].Cells[10].Value).nombre;
             txtTotal.Text = dgbCreditos.SelectedRows[0].Cells[5].Value.ToString();
-            numPagos.Text = dgbCreditos.SelectedRows[0].Cells[7].Value.ToString();
+            comboCuotas.Text = dgbCreditos.SelectedRows[0].Cells[7].Value.ToString();
             txtCuota.Text = dgbCreditos.SelectedRows[0].Cells[6].Value.ToString();
 
 
@@ -326,8 +337,8 @@ namespace lineaBlanca.vistas
                         .ToList();
 
                     //MessageBox.Show(txtInteres.ToS);
-                    total = (decimal.Parse(txtTotal.Text) - (decimal.Parse(dgbProductos.SelectedRows[0].Cells[2].Value.ToString())));
-                    txtTotal.Text = total.ToString();
+                    total = (total - (decimal.Parse(dgbProductos.SelectedRows[0].Cells[2].Value.ToString())));
+                    txtTotal.Text = (Math.Round(total + total*(decimal.Parse(txtInteres.Text) / 100))).ToString();
                     fillProductosTable();
                 }
             }
@@ -402,25 +413,50 @@ namespace lineaBlanca.vistas
 
         }
 
-        private void numPagos_ValueChanged(object sender, EventArgs e)
-        {
-            calcularCuota();
-        }
 
         private void txtInteres_TextChanged(object sender, EventArgs e)
         {
             calcularCuota();
+            actualizarTotal();
         }
 
         void calcularCuota()
         {
-            if (txtTotal.Text != "" && numPagos.Text != "" && txtInteres.Text != "") //10% = 0.1    20% = 0.2  
+            if (txtTotal.Text != "" && txtInteres.Text != "" && comboCuotas.Text != "") //10% = 0.1    20% = 0.2  
             {
-                decimal totalConInteres = (decimal.Parse(txtTotal.Text) * (decimal.Parse(txtInteres.Text) / 100)) + decimal.Parse(txtTotal.Text);
-                int numeroPagos = int.Parse(numPagos.Text);
+                decimal totalConInteres = decimal.Parse(txtTotal.Text);
+                int numeroPagos = int.Parse(comboCuotas.Text);
 
-                txtCuota.Text = (totalConInteres/numeroPagos).ToString();
+                txtCuota.Text = ( Math.Round(totalConInteres / numeroPagos, 2) ).ToString();
+                actualizarTotal();
             }
+
+        }
+
+        private void comboCuotas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            switch (comboCuotas.Text)
+            {
+                case "12":
+                    txtInteres.Text = "51";
+                    break;
+                case "9":
+                    txtInteres.Text = "45";
+                    break;
+                case "6":
+                    txtInteres.Text = "39";
+                    break;
+                case "3":
+                    txtInteres.Text = "34";
+                    break;
+                default:
+                    txtInteres.Text = "0";
+                    break;
+            }
+
+            calcularCuota();
+            actualizarTotal();
         }
     }
 }

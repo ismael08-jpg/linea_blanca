@@ -35,7 +35,10 @@ namespace lineaBlanca.vistas
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.comboCliente = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.comboCredito = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -112,7 +115,10 @@ namespace lineaBlanca.vistas
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.guna2DateTimePicker2);
+            this.tabPage1.Controls.Add(this.guna2HtmlLabel2);
+            this.tabPage1.Controls.Add(this.comboCredito);
+            this.tabPage1.Controls.Add(this.guna2HtmlLabel1);
+            this.tabPage1.Controls.Add(this.comboCliente);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -147,20 +153,67 @@ namespace lineaBlanca.vistas
             this.guna2DateTimePicker1.TabIndex = 0;
             this.guna2DateTimePicker1.Value = new System.DateTime(2021, 10, 28, 5, 29, 3, 578);
             // 
-            // guna2DateTimePicker2
+            // guna2HtmlLabel1
             // 
-            this.guna2DateTimePicker2.CheckedState.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker2.HoverState.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(59, 395);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.ShadowDecoration.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(200, 36);
-            this.guna2DateTimePicker2.TabIndex = 1;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2021, 10, 28, 5, 29, 3, 578);
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(60, 35);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(45, 21);
+            this.guna2HtmlLabel1.TabIndex = 51;
+            this.guna2HtmlLabel1.Text = "Cliente";
+            // 
+            // comboCliente
+            // 
+            this.comboCliente.BackColor = System.Drawing.Color.Transparent;
+            this.comboCliente.BorderRadius = 5;
+            this.comboCliente.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCliente.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboCliente.FocusedState.Parent = this.comboCliente;
+            this.comboCliente.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
+            this.comboCliente.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.comboCliente.HoverState.Parent = this.comboCliente;
+            this.comboCliente.ItemHeight = 20;
+            this.comboCliente.ItemsAppearance.Parent = this.comboCliente;
+            this.comboCliente.Location = new System.Drawing.Point(60, 62);
+            this.comboCliente.Name = "comboCliente";
+            this.comboCliente.ShadowDecoration.Parent = this.comboCliente;
+            this.comboCliente.Size = new System.Drawing.Size(373, 26);
+            this.comboCliente.TabIndex = 50;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(494, 35);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(48, 21);
+            this.guna2HtmlLabel2.TabIndex = 53;
+            this.guna2HtmlLabel2.Text = "Crédito";
+            // 
+            // comboCredito
+            // 
+            this.comboCredito.BackColor = System.Drawing.Color.Transparent;
+            this.comboCredito.BorderRadius = 5;
+            this.comboCredito.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboCredito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCredito.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboCredito.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboCredito.FocusedState.Parent = this.comboCredito;
+            this.comboCredito.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
+            this.comboCredito.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.comboCredito.HoverState.Parent = this.comboCredito;
+            this.comboCredito.ItemHeight = 20;
+            this.comboCredito.ItemsAppearance.Parent = this.comboCredito;
+            this.comboCredito.Location = new System.Drawing.Point(494, 62);
+            this.comboCredito.Name = "comboCredito";
+            this.comboCredito.ShadowDecoration.Parent = this.comboCredito;
+            this.comboCredito.Size = new System.Drawing.Size(373, 26);
+            this.comboCredito.TabIndex = 52;
             // 
             // FrmPagos
             // 
@@ -176,6 +229,7 @@ namespace lineaBlanca.vistas
             this.Text = "FrmPagos";
             this.guna2TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,7 +243,10 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2ComboBox comboCredito;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2ComboBox comboCliente;
     }
 }

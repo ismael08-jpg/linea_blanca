@@ -17,6 +17,15 @@ namespace lineaBlanca.vistas
         {
             InitializeComponent();
             autoCompletar();
+            fillComboCliente();
+        }
+
+        void fillComboCliente()
+        {
+            comboCliente.DataSource = null;
+            comboCliente.DataSource = contexto.cliente.ToList();
+            comboCliente.DisplayMember = "nombre";
+            comboCliente.ValueMember = "id_cliente";
         }
 
         void autoCompletar()
