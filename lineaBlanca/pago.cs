@@ -14,19 +14,14 @@ namespace lineaBlanca
     
     public partial class pago
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public pago()
-        {
-            this.cuota = new HashSet<cuota>();
-        }
-    
         public int id_pago { get; set; }
         public Nullable<System.DateTime> fecha_pago { get; set; }
         public decimal monto { get; set; }
+        public Nullable<System.DateTime> fecha_limite { get; set; }
+        public Nullable<decimal> mora { get; set; }
+        public string estado { get; set; }
         public int id_credito { get; set; }
-        public decimal total { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cuota> cuota { get; set; }
+        public virtual credito credito { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace lineaBlanca
         public credito()
         {
             this.producto = new HashSet<producto>();
-            this.cuota = new HashSet<cuota>();
+            this.pago = new HashSet<pago>();
         }
     
         public int id_credito { get; set; }
@@ -27,12 +27,16 @@ namespace lineaBlanca
         public decimal interes { get; set; }
         public Nullable<System.DateTime> fecha_compra { get; set; }
         public decimal total { get; set; }
+        public Nullable<decimal> cuota { get; set; }
+        public Nullable<int> cantidad_cuotas { get; set; }
+        public Nullable<System.DateTime> fecha_inicio { get; set; }
+        public string estado { get; set; }
     
         public virtual cliente cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<producto> producto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cuota> cuota { get; set; }
+        public virtual ICollection<pago> pago { get; set; }
         public virtual usuario usuario { get; set; }
     }
 }

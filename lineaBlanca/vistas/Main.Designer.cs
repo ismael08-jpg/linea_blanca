@@ -29,30 +29,13 @@ namespace lineaBlanca.vistas
         /// </summary>
         private void InitializeComponent()
         {
-            this.principalPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.sidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnProductos = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreditos = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagos = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.dashboardView1 = new lineaBlanca.vistas.DashboardView();
-            this.productoView1 = new lineaBlanca.vistas.ProductoView();
-            this.creditoView1 = new lineaBlanca.vistas.CreditoView();
-            this.principalPanel.SuspendLayout();
+            this.btnInicio = new Guna.UI2.WinForms.Guna2Button();
             this.sidebar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // principalPanel
-            // 
-            this.principalPanel.Controls.Add(this.dashboardView1);
-            this.principalPanel.Controls.Add(this.creditoView1);
-            this.principalPanel.Controls.Add(this.productoView1);
-            this.principalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.principalPanel.Location = new System.Drawing.Point(179, 0);
-            this.principalPanel.Name = "principalPanel";
-            this.principalPanel.ShadowDecoration.Parent = this.principalPanel;
-            this.principalPanel.Size = new System.Drawing.Size(757, 534);
-            this.principalPanel.TabIndex = 3;
             // 
             // sidebar
             // 
@@ -60,12 +43,12 @@ namespace lineaBlanca.vistas
             this.sidebar.Controls.Add(this.btnProductos);
             this.sidebar.Controls.Add(this.btnCreditos);
             this.sidebar.Controls.Add(this.btnPagos);
-            this.sidebar.Controls.Add(this.btnDashboard);
+            this.sidebar.Controls.Add(this.btnInicio);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.Name = "sidebar";
             this.sidebar.ShadowDecoration.Parent = this.sidebar;
-            this.sidebar.Size = new System.Drawing.Size(179, 534);
+            this.sidebar.Size = new System.Drawing.Size(179, 577);
             this.sidebar.TabIndex = 2;
             // 
             // btnProductos
@@ -94,7 +77,6 @@ namespace lineaBlanca.vistas
             this.btnProductos.TabIndex = 3;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnProductos.CheckedChanged += new System.EventHandler(this.btnProductos_CheckedChanged);
             // 
             // btnCreditos
             // 
@@ -122,7 +104,7 @@ namespace lineaBlanca.vistas
             this.btnCreditos.TabIndex = 2;
             this.btnCreditos.Text = "Créditos";
             this.btnCreditos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCreditos.CheckedChanged += new System.EventHandler(this.btnCreditos_CheckedChanged);
+            this.btnCreditos.Click += new System.EventHandler(this.btnCreditos_Click);
             // 
             // btnPagos
             // 
@@ -150,89 +132,58 @@ namespace lineaBlanca.vistas
             this.btnPagos.TabIndex = 1;
             this.btnPagos.Text = "Pagos";
             this.btnPagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPagos.CheckedChanged += new System.EventHandler(this.BtnPagos_CheckedChanged);
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
             // 
-            // btnDashboard
+            // btnInicio
             // 
-            this.btnDashboard.BackColor = System.Drawing.Color.Snow;
-            this.btnDashboard.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnDashboard.Checked = true;
-            this.btnDashboard.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
-            this.btnDashboard.CheckedState.Parent = this.btnDashboard;
-            this.btnDashboard.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnDashboard.CustomImages.Parent = this.btnDashboard;
-            this.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDashboard.DisabledState.Parent = this.btnDashboard;
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashboard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnDashboard.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.HoverState.Parent = this.btnDashboard;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 0);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
-            this.btnDashboard.PressedDepth = 0;
-            this.btnDashboard.ShadowDecoration.Parent = this.btnDashboard;
-            this.btnDashboard.Size = new System.Drawing.Size(179, 45);
-            this.btnDashboard.TabIndex = 0;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDashboard.CheckedChanged += new System.EventHandler(this.btnDashboard_CheckedChanged);
-            // 
-            // dashboardView1
-            // 
-            this.dashboardView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboardView1.Location = new System.Drawing.Point(0, 0);
-            this.dashboardView1.Name = "dashboardView1";
-            this.dashboardView1.Size = new System.Drawing.Size(757, 534);
-            this.dashboardView1.TabIndex = 0;
-            this.dashboardView1.Load += new System.EventHandler(this.dashboardView1_Load);
-            // 
-            // productoView1
-            // 
-            this.productoView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productoView1.Location = new System.Drawing.Point(0, 0);
-            this.productoView1.Name = "productoView1";
-            this.productoView1.Size = new System.Drawing.Size(757, 534);
-            this.productoView1.TabIndex = 1;
-            this.productoView1.Load += new System.EventHandler(this.productoView1_Load);
-            // 
-            // creditoView1
-            // 
-            this.creditoView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.creditoView1.Location = new System.Drawing.Point(0, 0);
-            this.creditoView1.Name = "creditoView1";
-            this.creditoView1.Size = new System.Drawing.Size(757, 534);
-            this.creditoView1.TabIndex = 2;
+            this.btnInicio.BackColor = System.Drawing.Color.Snow;
+            this.btnInicio.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnInicio.Checked = true;
+            this.btnInicio.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnInicio.CheckedState.Parent = this.btnInicio;
+            this.btnInicio.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnInicio.CustomImages.Parent = this.btnInicio;
+            this.btnInicio.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInicio.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInicio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInicio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInicio.DisabledState.Parent = this.btnInicio;
+            this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInicio.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnInicio.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.ForeColor = System.Drawing.Color.White;
+            this.btnInicio.HoverState.Parent = this.btnInicio;
+            this.btnInicio.Location = new System.Drawing.Point(0, 0);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnInicio.PressedDepth = 0;
+            this.btnInicio.ShadowDecoration.Parent = this.btnInicio;
+            this.btnInicio.Size = new System.Drawing.Size(179, 45);
+            this.btnInicio.TabIndex = 0;
+            this.btnInicio.Text = "Inicio";
+            this.btnInicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 534);
-            this.Controls.Add(this.principalPanel);
+            this.ClientSize = new System.Drawing.Size(1205, 577);
             this.Controls.Add(this.sidebar);
+            this.IsMdiContainer = true;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
-            this.principalPanel.ResumeLayout(false);
             this.sidebar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Panel principalPanel;
         private Guna.UI2.WinForms.Guna2Panel sidebar;
         private Guna.UI2.WinForms.Guna2Button btnProductos;
         private Guna.UI2.WinForms.Guna2Button btnCreditos;
         private Guna.UI2.WinForms.Guna2Button btnPagos;
-        private Guna.UI2.WinForms.Guna2Button btnDashboard;
-        private CreditoView creditoView1;
-        private ProductoView productoView1;
-        private DashboardView dashboardView1;
+        private Guna.UI2.WinForms.Guna2Button btnInicio;
     }
 }

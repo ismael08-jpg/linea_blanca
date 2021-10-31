@@ -28,9 +28,9 @@ namespace lineaBlanca
         public virtual DbSet<categoria> categoria { get; set; }
         public virtual DbSet<cliente> cliente { get; set; }
         public virtual DbSet<credito> credito { get; set; }
-        public virtual DbSet<cuota> cuota { get; set; }
         public virtual DbSet<pago> pago { get; set; }
         public virtual DbSet<producto> producto { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tipo> tipo { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
     }

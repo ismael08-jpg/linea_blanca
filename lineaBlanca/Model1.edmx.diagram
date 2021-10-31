@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9e8bcb7873344376a4f2db3b47e8a9f2" Name="Diagram1">
+      <Diagram DiagramId="76399f1e5c8045f78d3072bbe2880e9d" Name="Diagram1">
         <EntityTypeShape EntityType="linea_blancaModel.categoria" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.cliente" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="linea_blancaModel.credito" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="linea_blancaModel.cuota" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="linea_blancaModel.pago" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="linea_blancaModel.credito" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="linea_blancaModel.pago" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.producto" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="linea_blancaModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.tipo" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.usuario" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="linea_blancaModel.fk_Categoriaid_categoria" ManuallyRouted="false" />
@@ -18,7 +18,6 @@
         <AssociationConnector Association="linea_blancaModel.fk_Creditoid_credito" ManuallyRouted="false" />
         <AssociationConnector Association="linea_blancaModel.fk_id_credito_pago" ManuallyRouted="false" />
         <AssociationConnector Association="linea_blancaModel.fk_Usuarioid_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="linea_blancaModel.fk_Pagoid_pago" ManuallyRouted="false" />
         <AssociationConnector Association="linea_blancaModel.fk_tipo_credito" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace lineaBlanca.vistas
 {
-    public partial class DashboardView : UserControl
+    public partial class FrmInicio : Form
     {
-        public DashboardView()
+        public FrmInicio()
         {
             InitializeComponent();
         }

@@ -12,16 +12,12 @@ namespace lineaBlanca
     using System;
     using System.Collections.Generic;
     
-    public partial class cuota
+    public partial class sysdiagrams
     {
-        public int id_cuota { get; set; }
-        public decimal valor { get; set; }
-        public Nullable<System.DateTime> fecha_Prox_pago { get; set; }
-        public string estado { get; set; }
-        public int id_credito { get; set; }
-        public int id_pago { get; set; }
-    
-        public virtual credito credito { get; set; }
-        public virtual pago pago { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

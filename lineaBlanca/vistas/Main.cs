@@ -12,54 +12,46 @@ namespace lineaBlanca.vistas
 {
     public partial class Main : Form
     {
+        FrmCredito frmCre = new FrmCredito();
+        FrmInicio frmInicio = new FrmInicio();
+        FrmPagos frmPagos = new FrmPagos();
         public Main()
         {
             InitializeComponent();
+
+            frmInicio.MdiParent = this;
+            frmInicio.Show();
+            frmInicio.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void btnDashboard_CheckedChanged(object sender, EventArgs e)
+        private void btnInicio_Click(object sender, EventArgs e)
         {
-            if (btnDashboard.Checked)
+            if (btnInicio.Checked)
             {
-                dashboardView1.Show();
-                productoView1.Hide();
-                creditoView1.Hide();
+                frmInicio.Focus();
+
             }
         }
 
-        private void BtnPagos_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnCreditos_CheckedChanged(object sender, EventArgs e)
+        private void btnCreditos_Click(object sender, EventArgs e)
         {
             if (btnCreditos.Checked)
             {
-                dashboardView1.Hide();
-                productoView1.Hide();
-                creditoView1.Show();
+                frmCre.MdiParent = this;
+                frmCre.Show();
+                frmCre.Focus();
+
             }
         }
 
-        private void btnProductos_CheckedChanged(object sender, EventArgs e)
+        private void btnPagos_Click(object sender, EventArgs e)
         {
-            if (btnProductos.Checked)
+            if (btnPagos.Checked)
             {
-                dashboardView1.Hide();
-                productoView1.Show();
-                creditoView1.Hide();
+                frmPagos.MdiParent = this;
+                frmPagos.Show();
+                frmPagos.Focus();
             }
-        }
-
-        private void productoView1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboardView1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

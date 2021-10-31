@@ -29,23 +29,14 @@
     <Property Name="interes" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
     <Property Name="fecha_compra" Type="DateTime" Precision="0" />
     <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="cuota" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cantidad_cuotas" Type="Int32" />
+    <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="cliente" Relationship="Self.fk_Clienteid_cliente" FromRole="credito" ToRole="cliente" />
     <NavigationProperty Name="producto" Relationship="Self.fk_Creditoid_credito" FromRole="credito" ToRole="producto" />
-    <NavigationProperty Name="cuota" Relationship="Self.fk_id_credito_pago" FromRole="credito" ToRole="cuota" />
+    <NavigationProperty Name="pago" Relationship="Self.fk_id_credito_pago" FromRole="credito" ToRole="pago" />
     <NavigationProperty Name="usuario" Relationship="Self.fk_Usuarioid_usuario" FromRole="credito" ToRole="usuario" />
-  </EntityType>
-  <EntityType Name="cuota">
-    <Key>
-      <PropertyRef Name="id_cuota" />
-    </Key>
-    <Property Name="id_cuota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="fecha_Prox_pago" Type="DateTime" Precision="0" />
-    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="id_credito" Type="Int32" Nullable="false" />
-    <Property Name="id_pago" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="credito" Relationship="Self.fk_id_credito_pago" FromRole="cuota" ToRole="credito" />
-    <NavigationProperty Name="pago" Relationship="Self.fk_Pagoid_pago" FromRole="cuota" ToRole="pago" />
   </EntityType>
   <EntityType Name="pago">
     <Key>
@@ -54,9 +45,11 @@
     <Property Name="id_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="fecha_pago" Type="DateTime" Precision="0" />
     <Property Name="monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="fecha_limite" Type="DateTime" Precision="0" />
+    <Property Name="mora" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="id_credito" Type="Int32" Nullable="false" />
-    <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <NavigationProperty Name="cuota" Relationship="Self.fk_Pagoid_pago" FromRole="pago" ToRole="cuota" />
+    <NavigationProperty Name="credito" Relationship="Self.fk_id_credito_pago" FromRole="pago" ToRole="credito" />
   </EntityType>
   <EntityType Name="producto">
     <Key>
@@ -69,6 +62,16 @@
     <Property Name="id_tipo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="credito" Relationship="Self.fk_Creditoid_credito" FromRole="producto" ToRole="credito" />
     <NavigationProperty Name="tipo" Relationship="Self.fk_tipo_credito" FromRole="producto" ToRole="tipo" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="tipo">
     <Key>
@@ -138,12 +141,12 @@
     <End Role="credito" Type="Self.credito" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <End Role="pago" Type="Self.pago" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="credito">
         <PropertyRef Name="id_credito" />
       </Principal>
-      <Dependent Role="cuota">
+      <Dependent Role="pago">
         <PropertyRef Name="id_credito" />
       </Dependent>
     </ReferentialConstraint>
@@ -159,20 +162,6 @@
       </Principal>
       <Dependent Role="credito">
         <PropertyRef Name="id_usuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Pagoid_pago">
-    <End Role="pago" Type="Self.pago" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="pago">
-        <PropertyRef Name="id_pago" />
-      </Principal>
-      <Dependent Role="cuota">
-        <PropertyRef Name="id_pago" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -194,9 +183,9 @@
     <EntitySet Name="categoria" EntityType="Self.categoria" />
     <EntitySet Name="cliente" EntityType="Self.cliente" />
     <EntitySet Name="credito" EntityType="Self.credito" />
-    <EntitySet Name="cuota" EntityType="Self.cuota" />
     <EntitySet Name="pago" EntityType="Self.pago" />
     <EntitySet Name="producto" EntityType="Self.producto" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="tipo" EntityType="Self.tipo" />
     <EntitySet Name="usuario" EntityType="Self.usuario" />
     <AssociationSet Name="fk_Categoriaid_categoria" Association="Self.fk_Categoriaid_categoria">
@@ -213,15 +202,11 @@
     </AssociationSet>
     <AssociationSet Name="fk_id_credito_pago" Association="Self.fk_id_credito_pago">
       <End Role="credito" EntitySet="credito" />
-      <End Role="cuota" EntitySet="cuota" />
+      <End Role="pago" EntitySet="pago" />
     </AssociationSet>
     <AssociationSet Name="fk_Usuarioid_usuario" Association="Self.fk_Usuarioid_usuario">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="credito" EntitySet="credito" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Pagoid_pago" Association="Self.fk_Pagoid_pago">
-      <End Role="pago" EntitySet="pago" />
-      <End Role="cuota" EntitySet="cuota" />
     </AssociationSet>
     <AssociationSet Name="fk_tipo_credito" Association="Self.fk_tipo_credito">
       <End Role="tipo" EntitySet="tipo" />

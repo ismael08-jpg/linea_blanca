@@ -27,17 +27,10 @@
     <Property Name="interes" Type="decimal" Precision="18" Scale="6" Nullable="false" />
     <Property Name="fecha_compra" Type="date" />
     <Property Name="total" Type="money" Nullable="false" />
-  </EntityType>
-  <EntityType Name="cuota">
-    <Key>
-      <PropertyRef Name="id_cuota" />
-    </Key>
-    <Property Name="id_cuota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="valor" Type="money" Nullable="false" />
-    <Property Name="fecha_Prox_pago" Type="date" />
+    <Property Name="cuota" Type="money" />
+    <Property Name="cantidad_cuotas" Type="int" />
+    <Property Name="fecha_inicio" Type="date" />
     <Property Name="estado" Type="varchar" MaxLength="50" />
-    <Property Name="id_credito" Type="int" Nullable="false" />
-    <Property Name="id_pago" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="pago">
     <Key>
@@ -46,8 +39,10 @@
     <Property Name="id_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fecha_pago" Type="date" />
     <Property Name="monto" Type="money" Nullable="false" />
+    <Property Name="fecha_limite" Type="date" />
+    <Property Name="mora" Type="money" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
     <Property Name="id_credito" Type="int" Nullable="false" />
-    <Property Name="total" Type="money" Nullable="false" />
   </EntityType>
   <EntityType Name="producto">
     <Key>
@@ -58,6 +53,16 @@
     <Property Name="precio" Type="money" Nullable="false" />
     <Property Name="id_credito" Type="int" />
     <Property Name="id_tipo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="tipo">
     <Key>
@@ -124,27 +129,13 @@
     <End Role="credito" Type="Self.credito" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <End Role="pago" Type="Self.pago" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="credito">
         <PropertyRef Name="id_credito" />
       </Principal>
-      <Dependent Role="cuota">
+      <Dependent Role="pago">
         <PropertyRef Name="id_credito" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Pagoid_pago">
-    <End Role="pago" Type="Self.pago" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="pago">
-        <PropertyRef Name="id_pago" />
-      </Principal>
-      <Dependent Role="cuota">
-        <PropertyRef Name="id_pago" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -180,9 +171,9 @@
     <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="credito" EntityType="Self.credito" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="cuota" EntityType="Self.cuota" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="pago" EntityType="Self.pago" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipo" EntityType="Self.tipo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_Categoriaid_categoria" Association="Self.fk_Categoriaid_categoria">
@@ -199,11 +190,7 @@
     </AssociationSet>
     <AssociationSet Name="fk_id_credito_pago" Association="Self.fk_id_credito_pago">
       <End Role="credito" EntitySet="credito" />
-      <End Role="cuota" EntitySet="cuota" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Pagoid_pago" Association="Self.fk_Pagoid_pago">
       <End Role="pago" EntitySet="pago" />
-      <End Role="cuota" EntitySet="cuota" />
     </AssociationSet>
     <AssociationSet Name="fk_tipo_credito" Association="Self.fk_tipo_credito">
       <End Role="tipo" EntitySet="tipo" />
