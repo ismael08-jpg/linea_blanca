@@ -29,19 +29,30 @@ namespace lineaBlanca.vistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtClientes = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnPagar = new Guna.UI2.WinForms.Guna2Button();
+            this.txtTotal = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtCuota = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtMora = new Guna.UI2.WinForms.Guna2TextBox();
+            this.labelInfo = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dgbCreditos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.comboCliente = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.comboCredito = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtFechaLimite = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbCreditos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtClientes
@@ -115,8 +126,17 @@ namespace lineaBlanca.vistas
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtFechaLimite);
+            this.tabPage1.Controls.Add(this.btnPagar);
+            this.tabPage1.Controls.Add(this.txtTotal);
+            this.tabPage1.Controls.Add(this.guna2HtmlLabel5);
+            this.tabPage1.Controls.Add(this.guna2HtmlLabel6);
+            this.tabPage1.Controls.Add(this.txtCuota);
+            this.tabPage1.Controls.Add(this.guna2HtmlLabel4);
             this.tabPage1.Controls.Add(this.guna2HtmlLabel2);
-            this.tabPage1.Controls.Add(this.comboCredito);
+            this.tabPage1.Controls.Add(this.txtMora);
+            this.tabPage1.Controls.Add(this.labelInfo);
+            this.tabPage1.Controls.Add(this.dgbCreditos);
             this.tabPage1.Controls.Add(this.guna2HtmlLabel1);
             this.tabPage1.Controls.Add(this.comboCliente);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
@@ -124,34 +144,225 @@ namespace lineaBlanca.vistas
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1014, 525);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Por cobrar";
+            this.tabPage1.Text = "Dashboard";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // btnPagar
             // 
-            this.tabPage2.Controls.Add(this.guna2DateTimePicker1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1014, 525);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cobrado";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.btnPagar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnPagar.BorderRadius = 7;
+            this.btnPagar.BorderThickness = 1;
+            this.btnPagar.CheckedState.Parent = this.btnPagar;
+            this.btnPagar.CustomImages.Parent = this.btnPagar;
+            this.btnPagar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPagar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPagar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPagar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPagar.DisabledState.Parent = this.btnPagar;
+            this.btnPagar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(147)))));
+            this.btnPagar.Font = new System.Drawing.Font("Segoe UI Emoji", 9F);
+            this.btnPagar.ForeColor = System.Drawing.Color.White;
+            this.btnPagar.HoverState.Parent = this.btnPagar;
+            this.btnPagar.Location = new System.Drawing.Point(264, 212);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.ShadowDecoration.Parent = this.btnPagar;
+            this.btnPagar.Size = new System.Drawing.Size(64, 22);
+            this.btnPagar.TabIndex = 75;
+            this.btnPagar.Text = "Pagar";
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
-            // guna2DateTimePicker1
+            // txtTotal
             // 
-            this.guna2DateTimePicker1.CheckedState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.HoverState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(347, 101);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.ShadowDecoration.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(200, 36);
-            this.guna2DateTimePicker1.TabIndex = 0;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2021, 10, 28, 5, 29, 3, 578);
+            this.txtTotal.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtTotal.BorderRadius = 5;
+            this.txtTotal.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTotal.DefaultText = "";
+            this.txtTotal.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTotal.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTotal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTotal.DisabledState.Parent = this.txtTotal;
+            this.txtTotal.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTotal.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTotal.FocusedState.Parent = this.txtTotal;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
+            this.txtTotal.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTotal.HoverState.Parent = this.txtTotal;
+            this.txtTotal.Location = new System.Drawing.Point(59, 206);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.PasswordChar = '\0';
+            this.txtTotal.PlaceholderText = "0";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.SelectedText = "";
+            this.txtTotal.ShadowDecoration.Parent = this.txtTotal;
+            this.txtTotal.Size = new System.Drawing.Size(184, 28);
+            this.txtTotal.TabIndex = 74;
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(60, 180);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(103, 21);
+            this.guna2HtmlLabel5.TabIndex = 73;
+            this.guna2HtmlLabel5.Text = "Total a pagar ($)";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(650, 109);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(110, 21);
+            this.guna2HtmlLabel6.TabIndex = 71;
+            this.guna2HtmlLabel6.Text = "Cuota a pagar ($)";
+            // 
+            // txtCuota
+            // 
+            this.txtCuota.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtCuota.BorderRadius = 5;
+            this.txtCuota.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCuota.DefaultText = "";
+            this.txtCuota.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCuota.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCuota.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCuota.DisabledState.Parent = this.txtCuota;
+            this.txtCuota.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCuota.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCuota.FocusedState.Parent = this.txtCuota;
+            this.txtCuota.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
+            this.txtCuota.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCuota.HoverState.Parent = this.txtCuota;
+            this.txtCuota.Location = new System.Drawing.Point(650, 136);
+            this.txtCuota.Name = "txtCuota";
+            this.txtCuota.PasswordChar = '\0';
+            this.txtCuota.PlaceholderText = "0";
+            this.txtCuota.ReadOnly = true;
+            this.txtCuota.SelectedText = "";
+            this.txtCuota.ShadowDecoration.Parent = this.txtCuota;
+            this.txtCuota.Size = new System.Drawing.Size(268, 28);
+            this.txtCuota.TabIndex = 70;
+            // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(359, 109);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(76, 21);
+            this.guna2HtmlLabel4.TabIndex = 69;
+            this.guna2HtmlLabel4.Text = "Fecha limite";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(60, 109);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(113, 21);
+            this.guna2HtmlLabel2.TabIndex = 67;
+            this.guna2HtmlLabel2.Text = "Mora del pago ($)";
+            // 
+            // txtMora
+            // 
+            this.txtMora.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtMora.BorderRadius = 5;
+            this.txtMora.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMora.DefaultText = "";
+            this.txtMora.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMora.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMora.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMora.DisabledState.Parent = this.txtMora;
+            this.txtMora.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMora.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMora.FocusedState.Parent = this.txtMora;
+            this.txtMora.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
+            this.txtMora.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMora.HoverState.Parent = this.txtMora;
+            this.txtMora.Location = new System.Drawing.Point(60, 136);
+            this.txtMora.Name = "txtMora";
+            this.txtMora.PasswordChar = '\0';
+            this.txtMora.PlaceholderText = "0";
+            this.txtMora.ReadOnly = true;
+            this.txtMora.SelectedText = "";
+            this.txtMora.ShadowDecoration.Parent = this.txtMora;
+            this.txtMora.Size = new System.Drawing.Size(268, 28);
+            this.txtMora.TabIndex = 66;
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.BackColor = System.Drawing.Color.Transparent;
+            this.labelInfo.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelInfo.Location = new System.Drawing.Point(372, 213);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(3, 2);
+            this.labelInfo.TabIndex = 65;
+            // 
+            // dgbCreditos
+            // 
+            this.dgbCreditos.AllowUserToAddRows = false;
+            this.dgbCreditos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgbCreditos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgbCreditos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgbCreditos.BackgroundColor = System.Drawing.Color.White;
+            this.dgbCreditos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgbCreditos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgbCreditos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbCreditos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgbCreditos.ColumnHeadersHeight = 25;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgbCreditos.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgbCreditos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgbCreditos.EnableHeadersVisualStyles = false;
+            this.dgbCreditos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgbCreditos.Location = new System.Drawing.Point(60, 275);
+            this.dgbCreditos.Name = "dgbCreditos";
+            this.dgbCreditos.ReadOnly = true;
+            this.dgbCreditos.RowHeadersVisible = false;
+            this.dgbCreditos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgbCreditos.Size = new System.Drawing.Size(859, 211);
+            this.dgbCreditos.TabIndex = 64;
+            this.dgbCreditos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgbCreditos.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgbCreditos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgbCreditos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgbCreditos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgbCreditos.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgbCreditos.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgbCreditos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgbCreditos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgbCreditos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgbCreditos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgbCreditos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgbCreditos.ThemeStyle.HeaderStyle.Height = 25;
+            this.dgbCreditos.ThemeStyle.ReadOnly = true;
+            this.dgbCreditos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgbCreditos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgbCreditos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgbCreditos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgbCreditos.ThemeStyle.RowsStyle.Height = 22;
+            this.dgbCreditos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgbCreditos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgbCreditos.Click += new System.EventHandler(this.dgbCreditos_Click);
             // 
             // guna2HtmlLabel1
             // 
@@ -183,37 +394,43 @@ namespace lineaBlanca.vistas
             this.comboCliente.ShadowDecoration.Parent = this.comboCliente;
             this.comboCliente.Size = new System.Drawing.Size(373, 26);
             this.comboCliente.TabIndex = 50;
+            this.comboCliente.SelectedIndexChanged += new System.EventHandler(this.comboCliente_SelectedIndexChanged);
             // 
-            // guna2HtmlLabel2
+            // tabPage2
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(494, 35);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(48, 21);
-            this.guna2HtmlLabel2.TabIndex = 53;
-            this.guna2HtmlLabel2.Text = "Crédito";
+            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1014, 525);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Cobros a clientes";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // comboCredito
+            // txtFechaLimite
             // 
-            this.comboCredito.BackColor = System.Drawing.Color.Transparent;
-            this.comboCredito.BorderRadius = 5;
-            this.comboCredito.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboCredito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboCredito.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboCredito.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboCredito.FocusedState.Parent = this.comboCredito;
-            this.comboCredito.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
-            this.comboCredito.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.comboCredito.HoverState.Parent = this.comboCredito;
-            this.comboCredito.ItemHeight = 20;
-            this.comboCredito.ItemsAppearance.Parent = this.comboCredito;
-            this.comboCredito.Location = new System.Drawing.Point(494, 62);
-            this.comboCredito.Name = "comboCredito";
-            this.comboCredito.ShadowDecoration.Parent = this.comboCredito;
-            this.comboCredito.Size = new System.Drawing.Size(373, 26);
-            this.comboCredito.TabIndex = 52;
+            this.txtFechaLimite.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtFechaLimite.BorderRadius = 5;
+            this.txtFechaLimite.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFechaLimite.DefaultText = "";
+            this.txtFechaLimite.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFechaLimite.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFechaLimite.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFechaLimite.DisabledState.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFechaLimite.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFechaLimite.FocusedState.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
+            this.txtFechaLimite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFechaLimite.HoverState.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.Location = new System.Drawing.Point(359, 136);
+            this.txtFechaLimite.Name = "txtFechaLimite";
+            this.txtFechaLimite.PasswordChar = '\0';
+            this.txtFechaLimite.PlaceholderText = "00/00/0000";
+            this.txtFechaLimite.ReadOnly = true;
+            this.txtFechaLimite.SelectedText = "";
+            this.txtFechaLimite.ShadowDecoration.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.Size = new System.Drawing.Size(268, 28);
+            this.txtFechaLimite.TabIndex = 76;
             // 
             // FrmPagos
             // 
@@ -230,7 +447,7 @@ namespace lineaBlanca.vistas
             this.guna2TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgbCreditos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,10 +460,18 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox comboCredito;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ComboBox comboCliente;
+        private Guna.UI2.WinForms.Guna2DataGridView dgbCreditos;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labelInfo;
+        private Guna.UI2.WinForms.Guna2TextBox txtMora;
+        private Guna.UI2.WinForms.Guna2TextBox txtTotal;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2TextBox txtCuota;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2Button btnPagar;
+        private Guna.UI2.WinForms.Guna2TextBox txtFechaLimite;
     }
 }

@@ -16,7 +16,7 @@ namespace lineaBlanca.vistas
         producto prod = new producto();
         private List<producto> productos = new List<producto>();
         private decimal total = 0;
-        private int LIMTE_PRODUCTOS = 3;
+        private int LIMTE_PRODUCTOS = 5;
         private int idCredito = 0;
 
         public FrmCredito()
@@ -102,12 +102,13 @@ namespace lineaBlanca.vistas
             dgbCreditos.Columns["pago"].Visible = false;
             dgbCreditos.Columns["usuario"].Visible = false;
             dgbCreditos.Columns["fecha_inicio"].Visible = false;
-            dgbCreditos.Columns["estado"].Visible = false;
+            //dgbCreditos.Columns["estado"].Visible = false;
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
             credito credito = new credito();
+            pago pago = new pago();
             
 
             try
@@ -119,14 +120,25 @@ namespace lineaBlanca.vistas
                 credito.fecha_compra = now;
                 credito.cuota = decimal.Parse(txtCuota.Text);
                 credito.cantidad_cuotas = int.Parse(comboCuotas.Text);
+                credito.estado = "No iniciado";
                 credito.total = total + total * (decimal.Parse(txtInteres.Text)/100);
                 contexto.credito.Add(credito);
+
 
                 if (contexto.SaveChanges() == 1)
                 {
                     MessageBox.Show("¡Crédito creado con éxito!");
                 }
 
+                //Crear el primer pago del crédito
+                pago.monto = (decimal)credito.cuota;
+                pago.id_credito = credito.id_credito;
+                pago.estado = "Pendiente";
+                contexto.pago.Add(pago);
+
+                contexto.SaveChanges();
+
+                //Guardar todos los productos
                 foreach (producto producto in productos)
                 {
                     producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == producto.id_producto );
@@ -151,46 +163,64 @@ namespace lineaBlanca.vistas
             {
                 //Guardamos todo en la tabla créditos
                 credito cr = contexto.credito.FirstOrDefault(x => x.id_credito == idCredito);
+                
+                var pagos = (from p in contexto.pago
+                             where p.id_credito == idCredito
+                             select p).ToList();
 
-                cr.interes = decimal.Parse(txtInteres.Text);
-                cr.id_cliente = int.Parse(comboCliente.SelectedValue.ToString());
-                cr.cuota = decimal.Parse(txtCuota.Text);
-                cr.cantidad_cuotas = int.Parse(comboCuotas.Text);
-                cr.total = total + total * (decimal.Parse(txtInteres.Text)/100);
-
-                if (contexto.SaveChanges() == 1)
+                //Si ya tiene un pago hecho, no se podrá editar (acuerdo de crédito)
+                if (pagos.Count() < 1 || cr.estado != "No iniciado")
                 {
-                    MessageBox.Show("Modificado con éxito", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    cr.interes = decimal.Parse(txtInteres.Text);
+                    cr.id_cliente = int.Parse(comboCliente.SelectedValue.ToString());
+                    cr.cuota = decimal.Parse(txtCuota.Text);
+                    cr.cantidad_cuotas = int.Parse(comboCuotas.Text);
+                    cr.total = total + total * (decimal.Parse(txtInteres.Text) / 100);
 
-                //Modificar la lista de productos
-                var old_prods = (from p in contexto.producto
+                    if (contexto.SaveChanges() == 1)
+                    {
+                        MessageBox.Show("Modificado con éxito", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    //Modificar la lista de productos
+                    var old_prods = (from p in contexto.producto
                                      where p.id_credito == idCredito
                                      select p).ToList();
 
-                //Eliminamos la vieja lista
-                if(old_prods.Count > 0)
-                {
-                    foreach (producto old_prod in old_prods)
+                    //Eliminamos la vieja lista
+                    if (old_prods.Count > 0)
                     {
-                        producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == old_prod.id_producto);
-                        prod.id_credito = null;
-                        contexto.SaveChanges();
+                        foreach (producto old_prod in old_prods)
+                        {
+                            producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == old_prod.id_producto);
+                            prod.id_credito = null;
+                            contexto.SaveChanges();
+                        }
                     }
-                }
 
-                //Agregamos la nueva lista 
-                if(productos.Count > 0)
-                {
-                    foreach (producto producto in productos)
+                    //Agregamos la nueva lista 
+                    if (productos.Count > 0)
                     {
-                        producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == producto.id_producto);
-                        prod.id_credito = cr.id_credito;
-                        contexto.SaveChanges();
+                        foreach (producto producto in productos)
+                        {
+                            producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == producto.id_producto);
+                            prod.id_credito = cr.id_credito;
+                            contexto.SaveChanges();
+                        }
                     }
-                }
 
-                fillComboProducto();
+                    //Editamos el primer pago
+
+                    pago pr = contexto.pago
+                        .FirstOrDefault(x => x.id_credito == idCredito);
+                    pr.monto = (decimal)cr.cuota;
+                    contexto.SaveChanges();
+
+                    fillComboProducto();
+                } else
+                {
+                    MessageBox.Show("No se pudo editar porque ya tiene pagos hechos.", "No se púede editar este crédito", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception message)
             {
@@ -307,15 +337,21 @@ namespace lineaBlanca.vistas
             var prods = (from p in contexto.producto 
                          where p.id_credito == idCredito 
                          select p).ToList();
+            decimal sumProds = (from p in contexto.producto
+                             where p.id_credito == idCredito
+                             select p.precio).ToList().Sum();
 
 
             productos = prods;
             fillProductosTable();
 
+            decimal totalConInteres = decimal.Parse(dgbCreditos.SelectedRows[0].Cells[5].Value.ToString());
+
 
             //Fill the form
             txtInteres.Text = dgbCreditos.SelectedRows[0].Cells[3].Value.ToString();
             comboCliente.Text = ((cliente)dgbCreditos.SelectedRows[0].Cells[10].Value).nombre;
+            total = sumProds;
             txtTotal.Text = dgbCreditos.SelectedRows[0].Cells[5].Value.ToString();
             comboCuotas.Text = dgbCreditos.SelectedRows[0].Cells[7].Value.ToString();
             txtCuota.Text = dgbCreditos.SelectedRows[0].Cells[6].Value.ToString();
