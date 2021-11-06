@@ -29,6 +29,9 @@ namespace lineaBlanca.vistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,6 +39,7 @@ namespace lineaBlanca.vistas
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtFechaLimite = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnPagar = new Guna.UI2.WinForms.Guna2Button();
             this.txtTotal = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -49,10 +53,16 @@ namespace lineaBlanca.vistas
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.comboCliente = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtFechaLimite = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dgbHistorialPago = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.comboHistorialCliente = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.comboHistorialCredito = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgbCreditos)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbHistorialPago)).BeginInit();
             this.SuspendLayout();
             // 
             // txtClientes
@@ -144,8 +154,34 @@ namespace lineaBlanca.vistas
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1014, 525);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Dashboard";
+            this.tabPage1.Text = "Por cobrar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtFechaLimite
+            // 
+            this.txtFechaLimite.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtFechaLimite.BorderRadius = 5;
+            this.txtFechaLimite.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFechaLimite.DefaultText = "";
+            this.txtFechaLimite.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFechaLimite.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFechaLimite.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFechaLimite.DisabledState.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFechaLimite.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFechaLimite.FocusedState.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
+            this.txtFechaLimite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFechaLimite.HoverState.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.Location = new System.Drawing.Point(359, 136);
+            this.txtFechaLimite.Name = "txtFechaLimite";
+            this.txtFechaLimite.PasswordChar = '\0';
+            this.txtFechaLimite.PlaceholderText = "00/00/0000";
+            this.txtFechaLimite.ReadOnly = true;
+            this.txtFechaLimite.SelectedText = "";
+            this.txtFechaLimite.ShadowDecoration.Parent = this.txtFechaLimite;
+            this.txtFechaLimite.Size = new System.Drawing.Size(268, 28);
+            this.txtFechaLimite.TabIndex = 76;
             // 
             // btnPagar
             // 
@@ -296,41 +332,42 @@ namespace lineaBlanca.vistas
             // labelInfo
             // 
             this.labelInfo.BackColor = System.Drawing.Color.Transparent;
-            this.labelInfo.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfo.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelInfo.Location = new System.Drawing.Point(372, 213);
+            this.labelInfo.Location = new System.Drawing.Point(359, 213);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(3, 2);
             this.labelInfo.TabIndex = 65;
+            this.labelInfo.Text = null;
             // 
             // dgbCreditos
             // 
             this.dgbCreditos.AllowUserToAddRows = false;
             this.dgbCreditos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dgbCreditos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.dgbCreditos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgbCreditos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgbCreditos.BackgroundColor = System.Drawing.Color.White;
             this.dgbCreditos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgbCreditos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgbCreditos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbCreditos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbCreditos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgbCreditos.ColumnHeadersHeight = 25;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgbCreditos.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgbCreditos.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgbCreditos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgbCreditos.EnableHeadersVisualStyles = false;
             this.dgbCreditos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -398,39 +435,142 @@ namespace lineaBlanca.vistas
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.guna2HtmlLabel8);
+            this.tabPage2.Controls.Add(this.comboHistorialCredito);
+            this.tabPage2.Controls.Add(this.guna2HtmlLabel7);
+            this.tabPage2.Controls.Add(this.comboHistorialCliente);
+            this.tabPage2.Controls.Add(this.dgbHistorialPago);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1014, 525);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cobros a clientes";
+            this.tabPage2.Text = "Historial de créditos";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtFechaLimite
+            // dgbHistorialPago
             // 
-            this.txtFechaLimite.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtFechaLimite.BorderRadius = 5;
-            this.txtFechaLimite.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFechaLimite.DefaultText = "";
-            this.txtFechaLimite.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtFechaLimite.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtFechaLimite.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFechaLimite.DisabledState.Parent = this.txtFechaLimite;
-            this.txtFechaLimite.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFechaLimite.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFechaLimite.FocusedState.Parent = this.txtFechaLimite;
-            this.txtFechaLimite.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
-            this.txtFechaLimite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFechaLimite.HoverState.Parent = this.txtFechaLimite;
-            this.txtFechaLimite.Location = new System.Drawing.Point(359, 136);
-            this.txtFechaLimite.Name = "txtFechaLimite";
-            this.txtFechaLimite.PasswordChar = '\0';
-            this.txtFechaLimite.PlaceholderText = "00/00/0000";
-            this.txtFechaLimite.ReadOnly = true;
-            this.txtFechaLimite.SelectedText = "";
-            this.txtFechaLimite.ShadowDecoration.Parent = this.txtFechaLimite;
-            this.txtFechaLimite.Size = new System.Drawing.Size(268, 28);
-            this.txtFechaLimite.TabIndex = 76;
+            this.dgbHistorialPago.AllowUserToAddRows = false;
+            this.dgbHistorialPago.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgbHistorialPago.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgbHistorialPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgbHistorialPago.BackgroundColor = System.Drawing.Color.White;
+            this.dgbHistorialPago.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgbHistorialPago.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgbHistorialPago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbHistorialPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgbHistorialPago.ColumnHeadersHeight = 25;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgbHistorialPago.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgbHistorialPago.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgbHistorialPago.EnableHeadersVisualStyles = false;
+            this.dgbHistorialPago.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgbHistorialPago.Location = new System.Drawing.Point(50, 269);
+            this.dgbHistorialPago.Name = "dgbHistorialPago";
+            this.dgbHistorialPago.ReadOnly = true;
+            this.dgbHistorialPago.RowHeadersVisible = false;
+            this.dgbHistorialPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgbHistorialPago.Size = new System.Drawing.Size(859, 211);
+            this.dgbHistorialPago.TabIndex = 65;
+            this.dgbHistorialPago.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgbHistorialPago.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgbHistorialPago.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgbHistorialPago.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgbHistorialPago.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgbHistorialPago.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgbHistorialPago.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgbHistorialPago.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgbHistorialPago.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgbHistorialPago.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgbHistorialPago.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgbHistorialPago.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgbHistorialPago.ThemeStyle.HeaderStyle.Height = 25;
+            this.dgbHistorialPago.ThemeStyle.ReadOnly = true;
+            this.dgbHistorialPago.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgbHistorialPago.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgbHistorialPago.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgbHistorialPago.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgbHistorialPago.ThemeStyle.RowsStyle.Height = 22;
+            this.dgbHistorialPago.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgbHistorialPago.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // guna2HtmlLabel7
+            // 
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(50, 35);
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(45, 21);
+            this.guna2HtmlLabel7.TabIndex = 67;
+            this.guna2HtmlLabel7.Text = "Cliente";
+            // 
+            // comboHistorialCliente
+            // 
+            this.comboHistorialCliente.BackColor = System.Drawing.Color.Transparent;
+            this.comboHistorialCliente.BorderRadius = 5;
+            this.comboHistorialCliente.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboHistorialCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboHistorialCliente.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboHistorialCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboHistorialCliente.FocusedState.Parent = this.comboHistorialCliente;
+            this.comboHistorialCliente.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
+            this.comboHistorialCliente.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.comboHistorialCliente.HoverState.Parent = this.comboHistorialCliente;
+            this.comboHistorialCliente.ItemHeight = 20;
+            this.comboHistorialCliente.ItemsAppearance.Parent = this.comboHistorialCliente;
+            this.comboHistorialCliente.Location = new System.Drawing.Point(50, 62);
+            this.comboHistorialCliente.Name = "comboHistorialCliente";
+            this.comboHistorialCliente.ShadowDecoration.Parent = this.comboHistorialCliente;
+            this.comboHistorialCliente.Size = new System.Drawing.Size(373, 26);
+            this.comboHistorialCliente.TabIndex = 66;
+            this.comboHistorialCliente.SelectedIndexChanged += new System.EventHandler(this.comboHistorialCliente_SelectedIndexChanged);
+            // 
+            // guna2HtmlLabel8
+            // 
+            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(475, 35);
+            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(133, 21);
+            this.guna2HtmlLabel8.TabIndex = 69;
+            this.guna2HtmlLabel8.Text = "Créditos según fecha";
+            // 
+            // comboHistorialCredito
+            // 
+            this.comboHistorialCredito.BackColor = System.Drawing.Color.Transparent;
+            this.comboHistorialCredito.BorderRadius = 5;
+            this.comboHistorialCredito.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboHistorialCredito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboHistorialCredito.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboHistorialCredito.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboHistorialCredito.FocusedState.Parent = this.comboHistorialCredito;
+            this.comboHistorialCredito.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
+            this.comboHistorialCredito.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.comboHistorialCredito.HoverState.Parent = this.comboHistorialCredito;
+            this.comboHistorialCredito.ItemHeight = 20;
+            this.comboHistorialCredito.ItemsAppearance.Parent = this.comboHistorialCredito;
+            this.comboHistorialCredito.Location = new System.Drawing.Point(475, 62);
+            this.comboHistorialCredito.Name = "comboHistorialCredito";
+            this.comboHistorialCredito.ShadowDecoration.Parent = this.comboHistorialCredito;
+            this.comboHistorialCredito.Size = new System.Drawing.Size(373, 26);
+            this.comboHistorialCredito.TabIndex = 68;
+            this.comboHistorialCredito.SelectedIndexChanged += new System.EventHandler(this.comboHistorialCredito_SelectedIndexChanged);
             // 
             // FrmPagos
             // 
@@ -448,6 +588,9 @@ namespace lineaBlanca.vistas
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgbCreditos)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbHistorialPago)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +616,10 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Button btnPagar;
         private Guna.UI2.WinForms.Guna2TextBox txtFechaLimite;
+        private Guna.UI2.WinForms.Guna2DataGridView dgbHistorialPago;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2ComboBox comboHistorialCredito;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2ComboBox comboHistorialCliente;
     }
 }

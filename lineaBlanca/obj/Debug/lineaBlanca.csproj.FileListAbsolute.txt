@@ -6,7 +6,6 @@ C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\EntityFramework
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\Guna.UI2.dll
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\EntityFramework.xml
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.AssemblyReference.cache
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.Login.resources
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.Properties.Resources.resources
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.GenerateResource.cache
@@ -18,3 +17,4 @@ C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vis
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmCredito.resources
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmInicio.resources
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmPagos.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.AssemblyReference.cache
