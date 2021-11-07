@@ -206,7 +206,7 @@ namespace lineaBlanca.vistas
             {
                 clear();
                 labelInfo.ForeColor = System.Drawing.Color.Green;
-                labelInfo.Text = "Este pago ya fue realizado: " + String.Format("{0:dd-MM-yyyy}", dgbCreditos.SelectedRows[0].Cells[3].Value.ToString());
+                labelInfo.Text = "Este pago ya fue realizado: " + String.Format("{0:dd-MM-yyyy}", dgbCreditos.SelectedRows[0].Cells[2].Value.ToString());
             }
           
         }
@@ -368,6 +368,7 @@ namespace lineaBlanca.vistas
         private void comboHistorialCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgbHistorialPago.DataSource = null;
+            comboHistorialCredito.DataSource = null;
             if (comboHistorialClienteReady)
             fillComboHistorialCreditos();  
         }
