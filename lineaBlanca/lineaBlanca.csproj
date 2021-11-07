@@ -195,6 +195,14 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\credit-card.png" />
+    <None Include="Resources\credit-card %281%29.png" />
+    <None Include="Resources\money.png" />
+    <None Include="Resources\money %281%29.png" />
+    <None Include="Resources\hand.png" />
+    <None Include="Resources\casa %281%29.png" />
+    <None Include="Resources\casa.png" />
+    <None Include="Resources\home_96px1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

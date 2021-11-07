@@ -83,6 +83,7 @@ namespace lineaBlanca.vistas
             this.btnCreditos.BackColor = System.Drawing.Color.Snow;
             this.btnCreditos.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnCreditos.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnCreditos.CheckedState.Image = global::lineaBlanca.Properties.Resources.credit_card;
             this.btnCreditos.CheckedState.Parent = this.btnCreditos;
             this.btnCreditos.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCreditos.CustomImages.Parent = this.btnCreditos;
@@ -95,6 +96,8 @@ namespace lineaBlanca.vistas
             this.btnCreditos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreditos.ForeColor = System.Drawing.Color.White;
             this.btnCreditos.HoverState.Parent = this.btnCreditos;
+            this.btnCreditos.Image = global::lineaBlanca.Properties.Resources.credit_card__1_;
+            this.btnCreditos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCreditos.Location = new System.Drawing.Point(0, 84);
             this.btnCreditos.Name = "btnCreditos";
             this.btnCreditos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -111,6 +114,7 @@ namespace lineaBlanca.vistas
             this.btnPagos.BackColor = System.Drawing.Color.Snow;
             this.btnPagos.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnPagos.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnPagos.CheckedState.Image = global::lineaBlanca.Properties.Resources.money;
             this.btnPagos.CheckedState.Parent = this.btnPagos;
             this.btnPagos.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnPagos.CustomImages.Parent = this.btnPagos;
@@ -123,6 +127,8 @@ namespace lineaBlanca.vistas
             this.btnPagos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagos.ForeColor = System.Drawing.Color.White;
             this.btnPagos.HoverState.Parent = this.btnPagos;
+            this.btnPagos.Image = global::lineaBlanca.Properties.Resources.money__1_;
+            this.btnPagos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPagos.Location = new System.Drawing.Point(0, 42);
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -140,6 +146,7 @@ namespace lineaBlanca.vistas
             this.btnInicio.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnInicio.Checked = true;
             this.btnInicio.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnInicio.CheckedState.Image = global::lineaBlanca.Properties.Resources.casa;
             this.btnInicio.CheckedState.Parent = this.btnInicio;
             this.btnInicio.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnInicio.CustomImages.Parent = this.btnInicio;
@@ -153,6 +160,8 @@ namespace lineaBlanca.vistas
             this.btnInicio.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.HoverState.Parent = this.btnInicio;
+            this.btnInicio.Image = global::lineaBlanca.Properties.Resources.casa__1_;
+            this.btnInicio.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnInicio.Location = new System.Drawing.Point(0, 0);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -171,9 +180,9 @@ namespace lineaBlanca.vistas
             this.ClientSize = new System.Drawing.Size(1205, 577);
             this.Controls.Add(this.sidebar);
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
             this.sidebar.ResumeLayout(false);
             this.ResumeLayout(false);
 
