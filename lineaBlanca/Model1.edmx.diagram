@@ -4,13 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="76399f1e5c8045f78d3072bbe2880e9d" Name="Diagram1">
+      <Diagram DiagramId="fe874884f7b04320af18c7b66619326a" Name="Diagram1">
         <EntityTypeShape EntityType="linea_blancaModel.categoria" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.cliente" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.credito" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.pago" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.producto" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="linea_blancaModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.tipo" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="linea_blancaModel.usuario" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="linea_blancaModel.fk_Categoriaid_categoria" ManuallyRouted="false" />
