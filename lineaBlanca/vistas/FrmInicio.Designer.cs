@@ -37,10 +37,11 @@ namespace lineaBlanca.vistas
             this.labelBienvenida.BackColor = System.Drawing.Color.Transparent;
             this.labelBienvenida.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBienvenida.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelBienvenida.Location = new System.Drawing.Point(370, 80);
+            this.labelBienvenida.Location = new System.Drawing.Point(313, 56);
             this.labelBienvenida.Name = "labelBienvenida";
-            this.labelBienvenida.Size = new System.Drawing.Size(3, 2);
+            this.labelBienvenida.Size = new System.Drawing.Size(342, 52);
             this.labelBienvenida.TabIndex = 1;
+            this.labelBienvenida.Text = "Bienvenido ismael";
             // 
             // FrmInicio
             // 

@@ -15,7 +15,8 @@ namespace lineaBlanca
     {
         linea_blancaEntities contexto = new linea_blancaEntities();
         Main main = new Main();
-        
+        MainVendedor mainVendendor = new MainVendedor();
+
         public Login()
         {
             InitializeComponent();
@@ -66,7 +67,7 @@ namespace lineaBlanca
                         GlovalEntries.role = role;
                         GlovalEntries.nombre = nombre_user;
                         this.Hide();
-                        main.Show();
+                        mainVendendor.Show();
                         break;
                     default:
                         MessageBox.Show(this, "Error de usuario o contraseña",

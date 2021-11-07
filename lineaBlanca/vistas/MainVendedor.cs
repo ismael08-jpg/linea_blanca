@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace lineaBlanca.vistas
 {
-    public partial class Main : Form
+    public partial class MainVendedor : Form
     {
         FrmCredito frmCre = new FrmCredito();
         FrmInicio frmInicio = new FrmInicio();
@@ -18,8 +18,7 @@ namespace lineaBlanca.vistas
         FrmReportes frmRepos = new FrmReportes();
         FrmClientes frmClientes = new FrmClientes();
         FrmUsuarios frmUsuarios = new FrmUsuarios();
-        
-        public Main()
+        public MainVendedor()
         {
             InitializeComponent();
 
@@ -58,15 +57,7 @@ namespace lineaBlanca.vistas
             }
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            if (btnReportes.Checked)
-            {
-                frmRepos.MdiParent = this;
-                frmRepos.Show();
-                frmRepos.Focus();
-            }
-        }
+       
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
@@ -78,31 +69,5 @@ namespace lineaBlanca.vistas
             }
         }
 
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            if (btnUsuarios.Checked)
-            {
-                frmUsuarios.MdiParent = this;
-                frmUsuarios.Show();
-                frmUsuarios.Focus();
-            }
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {  
-            if (MessageBox.Show(this, "¿Estas seguro que desea salir", "¿Cerrar sesión?",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                
-                GlovalEntries.idUSer = 0;
-                GlovalEntries.nombre = "";
-                GlovalEntries.role = 0;
-                Login login = new Login();
-                this.Close();
-                login.Show();
-
-                
-            }
-        }
     }
 }
