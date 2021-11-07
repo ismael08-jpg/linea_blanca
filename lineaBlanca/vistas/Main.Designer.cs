@@ -31,6 +31,8 @@ namespace lineaBlanca.vistas
         {
             this.sidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnProductos = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClientes = new Guna.UI2.WinForms.Guna2Button();
             this.btnReportes = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreditos = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagos = new Guna.UI2.WinForms.Guna2Button();
@@ -41,6 +43,8 @@ namespace lineaBlanca.vistas
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.sidebar.Controls.Add(this.btnUsuarios);
+            this.sidebar.Controls.Add(this.btnClientes);
             this.sidebar.Controls.Add(this.btnReportes);
             this.sidebar.Controls.Add(this.btnProductos);
             this.sidebar.Controls.Add(this.btnCreditos);
@@ -70,7 +74,7 @@ namespace lineaBlanca.vistas
             this.btnProductos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.ForeColor = System.Drawing.Color.White;
             this.btnProductos.HoverState.Parent = this.btnProductos;
-            this.btnProductos.Location = new System.Drawing.Point(0, 125);
+            this.btnProductos.Location = new System.Drawing.Point(0, 135);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnProductos.PressedDepth = 0;
@@ -79,6 +83,68 @@ namespace lineaBlanca.vistas
             this.btnProductos.TabIndex = 3;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.BackColor = System.Drawing.Color.Snow;
+            this.btnUsuarios.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnUsuarios.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnUsuarios.CheckedState.Image = global::lineaBlanca.Properties.Resources.profile_user;
+            this.btnUsuarios.CheckedState.Parent = this.btnUsuarios;
+            this.btnUsuarios.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnUsuarios.CustomImages.Parent = this.btnUsuarios;
+            this.btnUsuarios.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsuarios.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsuarios.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUsuarios.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUsuarios.DisabledState.Parent = this.btnUsuarios;
+            this.btnUsuarios.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnUsuarios.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.HoverState.Parent = this.btnUsuarios;
+            this.btnUsuarios.Image = global::lineaBlanca.Properties.Resources.profile_user__1_;
+            this.btnUsuarios.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 270);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnUsuarios.PressedDepth = 0;
+            this.btnUsuarios.ShadowDecoration.Parent = this.btnUsuarios;
+            this.btnUsuarios.Size = new System.Drawing.Size(180, 45);
+            this.btnUsuarios.TabIndex = 6;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.BackColor = System.Drawing.Color.Snow;
+            this.btnClientes.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnClientes.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnClientes.CheckedState.Image = global::lineaBlanca.Properties.Resources.customer;
+            this.btnClientes.CheckedState.Parent = this.btnClientes;
+            this.btnClientes.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnClientes.CustomImages.Parent = this.btnClientes;
+            this.btnClientes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClientes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClientes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClientes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClientes.DisabledState.Parent = this.btnClientes;
+            this.btnClientes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnClientes.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.ForeColor = System.Drawing.Color.White;
+            this.btnClientes.HoverState.Parent = this.btnClientes;
+            this.btnClientes.Image = global::lineaBlanca.Properties.Resources.customer__1_;
+            this.btnClientes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnClientes.Location = new System.Drawing.Point(0, 180);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnClientes.PressedDepth = 0;
+            this.btnClientes.ShadowDecoration.Parent = this.btnClientes;
+            this.btnClientes.Size = new System.Drawing.Size(180, 45);
+            this.btnClientes.TabIndex = 5;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnReportes
             // 
@@ -100,7 +166,7 @@ namespace lineaBlanca.vistas
             this.btnReportes.HoverState.Parent = this.btnReportes;
             this.btnReportes.Image = global::lineaBlanca.Properties.Resources.pie_chart__1_;
             this.btnReportes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReportes.Location = new System.Drawing.Point(0, 170);
+            this.btnReportes.Location = new System.Drawing.Point(0, 225);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnReportes.PressedDepth = 0;
@@ -131,7 +197,7 @@ namespace lineaBlanca.vistas
             this.btnCreditos.HoverState.Parent = this.btnCreditos;
             this.btnCreditos.Image = global::lineaBlanca.Properties.Resources.credit_card__1_;
             this.btnCreditos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCreditos.Location = new System.Drawing.Point(0, 84);
+            this.btnCreditos.Location = new System.Drawing.Point(0, 90);
             this.btnCreditos.Name = "btnCreditos";
             this.btnCreditos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnCreditos.PressedDepth = 0;
@@ -162,7 +228,7 @@ namespace lineaBlanca.vistas
             this.btnPagos.HoverState.Parent = this.btnPagos;
             this.btnPagos.Image = global::lineaBlanca.Properties.Resources.money__1_;
             this.btnPagos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPagos.Location = new System.Drawing.Point(0, 42);
+            this.btnPagos.Location = new System.Drawing.Point(0, 45);
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnPagos.PressedDepth = 0;
@@ -228,5 +294,7 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2Button btnPagos;
         private Guna.UI2.WinForms.Guna2Button btnInicio;
         private Guna.UI2.WinForms.Guna2Button btnReportes;
+        private Guna.UI2.WinForms.Guna2Button btnClientes;
+        private Guna.UI2.WinForms.Guna2Button btnUsuarios;
     }
 }

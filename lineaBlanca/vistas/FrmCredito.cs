@@ -140,7 +140,7 @@ namespace lineaBlanca.vistas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            //refreshAll();
+            refreshAll();
             int idCliente = int.Parse(comboCliente.SelectedValue.ToString());
             int creditosActivos = hasActiveCredits(idCliente);
 
@@ -153,7 +153,7 @@ namespace lineaBlanca.vistas
                 try
                 {
                     DateTime now = DateTime.Now;
-                    credito.id_usuario = 1;
+                    credito.id_usuario = GlovalEntries.idUSer != 0 ? GlovalEntries.idUSer : 1;
                     credito.id_cliente = int.Parse(comboCliente.SelectedValue.ToString());
                     credito.interes = decimal.Parse(txtInteres.Text);
                     credito.fecha_compra = now;
@@ -372,6 +372,10 @@ namespace lineaBlanca.vistas
             if (txtBuscar.Text != "")
             {
                 btnClearFilters.Visible = true;
+            }
+            else
+            {
+                btnClearFilters.Visible = false;
             }
         }
 

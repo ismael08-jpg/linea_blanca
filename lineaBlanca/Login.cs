@@ -30,23 +30,34 @@ namespace lineaBlanca
             try
             {
                 //consulta para sacar el nivel en base al usuario y contraseña
-                string role = (from c in contexto.usuario
+                int role = (from c in contexto.usuario
                                where c.username == user
                                && c.pass_word == password
-                               select c.rol).FirstOrDefault().ToString();
+                               select c.rol).FirstOrDefault();
+
+                int userId = (from c in contexto.usuario
+                               where c.username == user
+                               && c.pass_word == password
+                               select c.id_usuario).FirstOrDefault();
 
                 switch (role)
                 {
-                    case "1":
+                    case 1:
                         //the user role is admin
+                        GlovalEntries.idUSer = userId;
+                        GlovalEntries.role = role;
                         this.Hide();
                         main.Show();
                         break;
-                    case "2":
+                    case 2:
                         //the user role is almacen
                         break;
-                    case "3":
+                    case 3:
                         //the user role is vendedor
+                        GlovalEntries.idUSer = userId;
+                        GlovalEntries.role = role;
+                        this.Hide();
+                        main.Show();
                         break;
                     default:
                         MessageBox.Show(this, "Error de usuario o contraseña",

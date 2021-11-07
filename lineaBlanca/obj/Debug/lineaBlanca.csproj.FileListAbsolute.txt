@@ -19,3 +19,5 @@ C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vis
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmPagos.resources
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.csproj.AssemblyReference.cache
 C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmReportes.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmClientes.resources
+C:\Users\Isma\Desktop\proyecto\lineaBlanca\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmUsuarios.resources

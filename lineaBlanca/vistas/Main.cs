@@ -16,6 +16,8 @@ namespace lineaBlanca.vistas
         FrmInicio frmInicio = new FrmInicio();
         FrmPagos frmPagos = new FrmPagos();
         FrmReportes frmRepos = new FrmReportes();
+        FrmClientes frmClientes = new FrmClientes();
+        FrmUsuarios frmUsuarios = new FrmUsuarios();
         public Main()
         {
             InitializeComponent();
@@ -62,6 +64,26 @@ namespace lineaBlanca.vistas
                 frmRepos.MdiParent = this;
                 frmRepos.Show();
                 frmRepos.Focus();
+            }
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            if (btnClientes.Checked)
+            {
+                frmClientes.MdiParent = this;
+                frmClientes.Show();
+                frmClientes.Focus();
+            }
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            if (btnUsuarios.Checked)
+            {
+                frmUsuarios.MdiParent = this;
+                frmUsuarios.Show();
+                frmUsuarios.Focus();
             }
         }
     }
