@@ -14,7 +14,14 @@ namespace lineaBlanca.vistas
     {
         public FrmInicio()
         {
+            
             InitializeComponent();
+            
+        }
+
+        private void FrmInicio_Load(object sender, EventArgs e)
+        {
+            labelBienvenida.Text = "Bienvenido/a " + GlovalEntries.nombre;
         }
     }
 }

@@ -8,7 +8,8 @@ namespace lineaBlanca
 {
     public class GlovalEntries
     {
-        public static int idUSer = 0;
-        public static int role = 0;
+        public static int idUSer;
+        public static int role;
+        public static string nombre;
     }
 }

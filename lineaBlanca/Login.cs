@@ -39,6 +39,10 @@ namespace lineaBlanca
                                where c.username == user
                                && c.pass_word == password
                                select c.id_usuario).FirstOrDefault();
+                string nombre_user = (from c in contexto.usuario
+                              where c.username == user
+                              && c.pass_word == password
+                              select c.nombre).FirstOrDefault();
 
                 switch (role)
                 {
@@ -46,16 +50,21 @@ namespace lineaBlanca
                         //the user role is admin
                         GlovalEntries.idUSer = userId;
                         GlovalEntries.role = role;
+                        GlovalEntries.nombre = nombre_user;
                         this.Hide();
                         main.Show();
                         break;
                     case 2:
+                        GlovalEntries.idUSer = userId;
+                        GlovalEntries.role = role;
+                        GlovalEntries.nombre = nombre_user;
                         //the user role is almacen
                         break;
                     case 3:
                         //the user role is vendedor
                         GlovalEntries.idUSer = userId;
                         GlovalEntries.role = role;
+                        GlovalEntries.nombre = nombre_user;
                         this.Hide();
                         main.Show();
                         break;
