@@ -17,8 +17,25 @@ namespace lineaBlanca.vistas
     {
         linea_blancaEntities contexto = new linea_blancaEntities();
         private int idCliente = 0;
-        
 
+        private void FrmClientes_Load(object sender, EventArgs e)
+        {
+            switch (GlovalEntries.role)
+            {
+                case 1: // The user is Admin
+                    btnEliminar.Visible = true;
+                    btnEditar.Visible = true;
+                    break;
+                case 2: // The user is Almacen
+                    btnEliminar.Visible = false;
+                    btnEditar.Visible = false;
+                    break;
+                case 3: // The user is Vendedor
+                    btnEliminar.Visible = false;
+                    btnEditar.Visible = false;
+                    break;
+            }
+        }
 
         public FrmClientes()
         {
@@ -238,6 +255,17 @@ namespace lineaBlanca.vistas
                 inicializarForm();
                 fillDatagrid(true);
             }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            
         }
     }
 }

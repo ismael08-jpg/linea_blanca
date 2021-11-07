@@ -34,12 +34,14 @@ namespace lineaBlanca.vistas
             this.btnCreditos = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagos = new Guna.UI2.WinForms.Guna2Button();
             this.btnInicio = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.sidebar.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.sidebar.Controls.Add(this.btnLogout);
             this.sidebar.Controls.Add(this.btnClientes);
             this.sidebar.Controls.Add(this.btnCreditos);
             this.sidebar.Controls.Add(this.btnPagos);
@@ -177,6 +179,37 @@ namespace lineaBlanca.vistas
             this.btnInicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Snow;
+            this.btnLogout.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnLogout.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnLogout.CheckedState.Image = global::lineaBlanca.Properties.Resources.logout__2_;
+            this.btnLogout.CheckedState.Parent = this.btnLogout;
+            this.btnLogout.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnLogout.CustomImages.Parent = this.btnLogout;
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.DisabledState.Parent = this.btnLogout;
+            this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnLogout.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.HoverState.Parent = this.btnLogout;
+            this.btnLogout.Image = global::lineaBlanca.Properties.Resources.logout__3_;
+            this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLogout.Location = new System.Drawing.Point(0, 180);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnLogout.PressedDepth = 0;
+            this.btnLogout.ShadowDecoration.Parent = this.btnLogout;
+            this.btnLogout.Size = new System.Drawing.Size(180, 45);
+            this.btnLogout.TabIndex = 8;
+            this.btnLogout.Text = "Cerrar Sesión";
+            this.btnLogout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // MainVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,5 +231,6 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2Button btnPagos;
         private Guna.UI2.WinForms.Guna2Button btnInicio;
         private Guna.UI2.WinForms.Guna2Button btnClientes;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

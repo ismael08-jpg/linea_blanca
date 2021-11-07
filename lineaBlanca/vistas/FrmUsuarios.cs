@@ -340,5 +340,24 @@ namespace lineaBlanca.vistas
                 btnChangePasword.Text = "Cancelar";
             }
         }
+
+        private void FrmUsuarios_Load(object sender, EventArgs e)
+        {
+            switch (GlovalEntries.role)
+            {
+                case 1: // The user is Admin
+                    btnEliminar.Visible = true;
+                    btnEditar.Visible = true;
+                    break;
+                case 2: // The user is Almacen
+                    btnEliminar.Visible = false;
+                    btnEditar.Visible = false;
+                    break;
+                case 3: // The user is Vendedor
+                    btnEliminar.Visible = false;
+                    btnEditar.Visible = false;
+                    break;
+            }
+        }
     }
 }

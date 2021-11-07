@@ -69,5 +69,23 @@ namespace lineaBlanca.vistas
             }
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            
+            if (MessageBox.Show(this, "¿Estas seguro que desea salir", "¿Cerrar sesión?",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                GlovalEntries.idUSer = 0;
+                GlovalEntries.nombre = "";
+                GlovalEntries.role = 0;
+
+                Login login = new Login();
+                this.Hide();
+                login.Show();
+
+
+            }
+        }
     }
 }
