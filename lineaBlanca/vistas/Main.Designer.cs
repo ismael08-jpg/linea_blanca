@@ -31,6 +31,7 @@ namespace lineaBlanca.vistas
         {
             this.sidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnProductos = new Guna.UI2.WinForms.Guna2Button();
+            this.btnReportes = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreditos = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagos = new Guna.UI2.WinForms.Guna2Button();
             this.btnInicio = new Guna.UI2.WinForms.Guna2Button();
@@ -40,6 +41,7 @@ namespace lineaBlanca.vistas
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.sidebar.Controls.Add(this.btnReportes);
             this.sidebar.Controls.Add(this.btnProductos);
             this.sidebar.Controls.Add(this.btnCreditos);
             this.sidebar.Controls.Add(this.btnPagos);
@@ -77,6 +79,37 @@ namespace lineaBlanca.vistas
             this.btnProductos.TabIndex = 3;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.BackColor = System.Drawing.Color.Snow;
+            this.btnReportes.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnReportes.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnReportes.CheckedState.Image = global::lineaBlanca.Properties.Resources.pie_chart;
+            this.btnReportes.CheckedState.Parent = this.btnReportes;
+            this.btnReportes.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnReportes.CustomImages.Parent = this.btnReportes;
+            this.btnReportes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReportes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReportes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReportes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReportes.DisabledState.Parent = this.btnReportes;
+            this.btnReportes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnReportes.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.HoverState.Parent = this.btnReportes;
+            this.btnReportes.Image = global::lineaBlanca.Properties.Resources.pie_chart__1_;
+            this.btnReportes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReportes.Location = new System.Drawing.Point(0, 170);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnReportes.PressedDepth = 0;
+            this.btnReportes.ShadowDecoration.Parent = this.btnReportes;
+            this.btnReportes.Size = new System.Drawing.Size(180, 45);
+            this.btnReportes.TabIndex = 4;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnCreditos
             // 
@@ -194,5 +227,6 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2Button btnCreditos;
         private Guna.UI2.WinForms.Guna2Button btnPagos;
         private Guna.UI2.WinForms.Guna2Button btnInicio;
+        private Guna.UI2.WinForms.Guna2Button btnReportes;
     }
 }

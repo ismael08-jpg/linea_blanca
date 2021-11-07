@@ -15,6 +15,7 @@ namespace lineaBlanca.vistas
         FrmCredito frmCre = new FrmCredito();
         FrmInicio frmInicio = new FrmInicio();
         FrmPagos frmPagos = new FrmPagos();
+        FrmReportes frmRepos = new FrmReportes();
         public Main()
         {
             InitializeComponent();
@@ -51,6 +52,16 @@ namespace lineaBlanca.vistas
                 frmPagos.MdiParent = this;
                 frmPagos.Show();
                 frmPagos.Focus();
+            }
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            if (btnReportes.Checked)
+            {
+                frmRepos.MdiParent = this;
+                frmRepos.Show();
+                frmRepos.Focus();
             }
         }
     }

@@ -126,6 +126,12 @@
     <Compile Include="vistas\FrmPagos.Designer.cs">
       <DependentUpon>FrmPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="vistas\FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FrmPagos.resx">
       <DependentUpon>FrmPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -195,6 +204,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\pie-chart.png" />
+    <None Include="Resources\pie-chart %281%29.png" />
     <None Include="Resources\credit-card.png" />
     <None Include="Resources\credit-card %281%29.png" />
     <None Include="Resources\money.png" />
