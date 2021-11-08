@@ -30,7 +30,7 @@ namespace lineaBlanca
             try
             {
                 //consulta para sacar el nivel en base al usuario y contraseña
-                string role = (from c in contexto.usuario
+                string role = (from c in contexto.usuarios
                                where c.username == user
                                && c.pass_word == password
                                select c.rol).FirstOrDefault().ToString();

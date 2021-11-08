@@ -23,7 +23,7 @@ namespace lineaBlanca.vistas
         {
             AutoCompleteStringCollection list = new AutoCompleteStringCollection();
 
-            var clientes = contexto.cliente.ToList();
+            var clientes = contexto.clientes.ToList();
 
             foreach (cliente cl in clientes)
             {

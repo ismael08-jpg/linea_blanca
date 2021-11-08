@@ -86,7 +86,7 @@ namespace lineaBlanca.vistas
             dgbCreditos.DataSource = null;
             if (isFiltering)
             {
-                var creditos = (from c in contexto.credito
+                var creditos = (from c in contexto.creditoes
                                  where c.cliente.nombre.Contains(txtBuscar.Text)
                                  || c.cliente.telefono.Contains(txtBuscar.Text)
                                  select c).ToList();
@@ -94,17 +94,17 @@ namespace lineaBlanca.vistas
             }
             else
             {
-                var creditos = contexto.credito.ToList();
+                var creditos = contexto.creditoes.ToList();
                 dgbCreditos.DataSource = creditos;
                 txtBuscar.Clear();
             }
 
-            dgbCreditos.Columns["cliente"].Visible = false;
-            dgbCreditos.Columns["producto"].Visible = false;
-            dgbCreditos.Columns["pago"].Visible = false;
-            dgbCreditos.Columns["usuario"].Visible = false;
-            dgbCreditos.Columns["fecha_inicio"].Visible = false;
-            dgbCreditos.Columns["estado"].Visible = false;
+            //dgbCreditos.Columns["cliente"].Visible = false;
+            //dgbCreditos.Columns["producto"].Visible = false;
+            //dgbCreditos.Columns["pago"].Visible = false;
+            //dgbCreditos.Columns["usuario"].Visible = false;
+            //dgbCreditos.Columns["fecha_inicio"].Visible = false;
+            //dgbCreditos.Columns["estado"].Visible = false;
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -122,7 +122,7 @@ namespace lineaBlanca.vistas
                 credito.cuota = decimal.Parse(txtCuota.Text);
                 credito.cantidad_cuotas = int.Parse(numPagos.Text);
                 credito.total = total;
-                contexto.credito.Add(credito);
+                contexto.creditoes.Add(credito);
 
                 if (contexto.SaveChanges() == 1)
                 {
@@ -131,7 +131,7 @@ namespace lineaBlanca.vistas
 
                 foreach (producto producto in productos)
                 {
-                    producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == producto.id_producto );
+                    producto prod = contexto.productoes.FirstOrDefault(x => x.id_producto == producto.id_producto );
                     prod.id_credito = credito.id_credito;
                     contexto.SaveChanges();
                 }
@@ -152,7 +152,7 @@ namespace lineaBlanca.vistas
             try
             {
                 //Guardamos todo en la tabla créditos
-                credito cr = contexto.credito.FirstOrDefault(x => x.id_credito == idCredito);
+                credito cr = contexto.creditoes.FirstOrDefault(x => x.id_credito == idCredito);
 
                 cr.interes = decimal.Parse(txtInteres.Text);
                 cr.id_cliente = int.Parse(comboCliente.SelectedValue.ToString());
@@ -166,8 +166,8 @@ namespace lineaBlanca.vistas
                 }
 
                 //Modificar la lista de productos
-                var old_prods = (from p in contexto.producto
-                                     where p.id_credito == idCredito
+                var old_prods = (from p in contexto.productoes
+                                 where p.id_credito == idCredito
                                      select p).ToList();
 
                 //Eliminamos la vieja lista
@@ -175,7 +175,7 @@ namespace lineaBlanca.vistas
                 {
                     foreach (producto old_prod in old_prods)
                     {
-                        producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == old_prod.id_producto);
+                        producto prod = contexto.productoes.FirstOrDefault(x => x.id_producto == old_prod.id_producto);
                         prod.id_credito = null;
                         contexto.SaveChanges();
                     }
@@ -186,7 +186,7 @@ namespace lineaBlanca.vistas
                 {
                     foreach (producto producto in productos)
                     {
-                        producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == producto.id_producto);
+                        producto prod = contexto.productoes.FirstOrDefault(x => x.id_producto == producto.id_producto);
                         prod.id_credito = cr.id_credito;
                         contexto.SaveChanges();
                     }
@@ -207,7 +207,7 @@ namespace lineaBlanca.vistas
         public void fillComboCliente()
         {
             comboCliente.DataSource = null;
-            comboCliente.DataSource = contexto.cliente.ToList();
+            comboCliente.DataSource = contexto.clientes.ToList();
             comboCliente.DisplayMember = "nombre";
             comboCliente.ValueMember = "id_cliente";
         }
@@ -215,8 +215,8 @@ namespace lineaBlanca.vistas
         public void fillComboProducto()
         {
             comboProducto.DataSource = null;
-            comboProducto.DataSource = contexto.producto.ToList();
-            comboProducto.DataSource = (from p in contexto.producto where p.id_credito == null select p).ToList();
+            comboProducto.DataSource = contexto.productoes.ToList();
+            comboProducto.DataSource = (from p in contexto.productoes where p.id_credito == null select p).ToList();
             comboProducto.DisplayMember = "nombre";
             comboProducto.ValueMember = "id_producto";
         }
@@ -293,7 +293,7 @@ namespace lineaBlanca.vistas
 
             //Fill products table
             idCredito = int.Parse(dgbCreditos.SelectedRows[0].Cells[0].Value.ToString());
-            var prods = (from p in contexto.producto 
+            var prods = (from p in contexto.productoes
                          where p.id_credito == idCredito 
                          select p).ToList();
 
@@ -352,9 +352,9 @@ namespace lineaBlanca.vistas
                 try
                 {
 
-                    credito cr = contexto.credito.FirstOrDefault(x => x.id_credito == idCredito);
+                    credito cr = contexto.creditoes.FirstOrDefault(x => x.id_credito == idCredito);
                     //Modificar la lista de productos
-                    var old_prods = (from p in contexto.producto
+                    var old_prods = (from p in contexto.productoes
                                      where p.id_credito == idCredito
                                      select p).ToList();
 
@@ -363,7 +363,7 @@ namespace lineaBlanca.vistas
                     {
                         foreach (producto old_prod in old_prods)
                         {
-                            producto prod = contexto.producto.FirstOrDefault(x => x.id_producto == old_prod.id_producto);
+                            producto prod = contexto.productoes.FirstOrDefault(x => x.id_producto == old_prod.id_producto);
                             prod.id_credito = null;
                             contexto.SaveChanges();
                         }
@@ -371,7 +371,7 @@ namespace lineaBlanca.vistas
 
 
                     //Eliminamos
-                    contexto.credito.Remove(cr);
+                    contexto.creditoes.Remove(cr);
 
                     if (contexto.SaveChanges() == 1)
                     {
@@ -421,6 +421,11 @@ namespace lineaBlanca.vistas
 
                 txtCuota.Text = (totalConInteres/numeroPagos).ToString();
             }
+        }
+
+        private void dgbCreditos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -6,7 +6,7 @@
     </Key>
     <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="tipo" Relationship="Self.fk_Categoriaid_categoria" FromRole="categoria" ToRole="tipo" />
+    <NavigationProperty Name="tipoes" Relationship="Self.fk_Categoriaid_categoria" FromRole="categoria" ToRole="tipo" />
   </EntityType>
   <EntityType Name="cliente">
     <Key>
@@ -17,7 +17,7 @@
     <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="dui" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="nit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="credito" Relationship="Self.fk_Clienteid_cliente" FromRole="cliente" ToRole="credito" />
+    <NavigationProperty Name="creditoes" Relationship="Self.fk_Clienteid_cliente" FromRole="cliente" ToRole="credito" />
   </EntityType>
   <EntityType Name="credito">
     <Key>
@@ -34,8 +34,8 @@
     <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
     <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="cliente" Relationship="Self.fk_Clienteid_cliente" FromRole="credito" ToRole="cliente" />
-    <NavigationProperty Name="producto" Relationship="Self.fk_Creditoid_credito" FromRole="credito" ToRole="producto" />
-    <NavigationProperty Name="pago" Relationship="Self.fk_id_credito_pago" FromRole="credito" ToRole="pago" />
+    <NavigationProperty Name="productoes" Relationship="Self.fk_Creditoid_credito" FromRole="credito" ToRole="producto" />
+    <NavigationProperty Name="pagoes" Relationship="Self.fk_id_credito_pago" FromRole="credito" ToRole="pago" />
     <NavigationProperty Name="usuario" Relationship="Self.fk_Usuarioid_usuario" FromRole="credito" ToRole="usuario" />
   </EntityType>
   <EntityType Name="pago">
@@ -63,7 +63,7 @@
     <NavigationProperty Name="credito" Relationship="Self.fk_Creditoid_credito" FromRole="producto" ToRole="credito" />
     <NavigationProperty Name="tipo" Relationship="Self.fk_tipo_credito" FromRole="producto" ToRole="tipo" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
+  <EntityType Name="sysdiagram">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
@@ -81,7 +81,7 @@
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="id_categoria" Type="Int32" Nullable="false" />
     <NavigationProperty Name="categoria" Relationship="Self.fk_Categoriaid_categoria" FromRole="tipo" ToRole="categoria" />
-    <NavigationProperty Name="producto" Relationship="Self.fk_tipo_credito" FromRole="tipo" ToRole="producto" />
+    <NavigationProperty Name="productoes" Relationship="Self.fk_tipo_credito" FromRole="tipo" ToRole="producto" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
@@ -93,7 +93,7 @@
     <Property Name="cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="pass_word" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="rol" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="credito" Relationship="Self.fk_Usuarioid_usuario" FromRole="usuario" ToRole="credito" />
+    <NavigationProperty Name="creditoes" Relationship="Self.fk_Usuarioid_usuario" FromRole="usuario" ToRole="credito" />
   </EntityType>
   <Association Name="fk_Categoriaid_categoria">
     <End Role="categoria" Type="Self.categoria" Multiplicity="1">
@@ -180,37 +180,37 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="linea_blancaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="categoria" EntityType="Self.categoria" />
-    <EntitySet Name="cliente" EntityType="Self.cliente" />
-    <EntitySet Name="credito" EntityType="Self.credito" />
-    <EntitySet Name="pago" EntityType="Self.pago" />
-    <EntitySet Name="producto" EntityType="Self.producto" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="tipo" EntityType="Self.tipo" />
-    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <EntitySet Name="categorias" EntityType="Self.categoria" />
+    <EntitySet Name="clientes" EntityType="Self.cliente" />
+    <EntitySet Name="creditoes" EntityType="Self.credito" />
+    <EntitySet Name="pagoes" EntityType="Self.pago" />
+    <EntitySet Name="productoes" EntityType="Self.producto" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tipoes" EntityType="Self.tipo" />
+    <EntitySet Name="usuarios" EntityType="Self.usuario" />
     <AssociationSet Name="fk_Categoriaid_categoria" Association="Self.fk_Categoriaid_categoria">
-      <End Role="categoria" EntitySet="categoria" />
-      <End Role="tipo" EntitySet="tipo" />
+      <End Role="categoria" EntitySet="categorias" />
+      <End Role="tipo" EntitySet="tipoes" />
     </AssociationSet>
     <AssociationSet Name="fk_Clienteid_cliente" Association="Self.fk_Clienteid_cliente">
-      <End Role="cliente" EntitySet="cliente" />
-      <End Role="credito" EntitySet="credito" />
+      <End Role="cliente" EntitySet="clientes" />
+      <End Role="credito" EntitySet="creditoes" />
     </AssociationSet>
     <AssociationSet Name="fk_Creditoid_credito" Association="Self.fk_Creditoid_credito">
-      <End Role="credito" EntitySet="credito" />
-      <End Role="producto" EntitySet="producto" />
+      <End Role="credito" EntitySet="creditoes" />
+      <End Role="producto" EntitySet="productoes" />
     </AssociationSet>
     <AssociationSet Name="fk_id_credito_pago" Association="Self.fk_id_credito_pago">
-      <End Role="credito" EntitySet="credito" />
-      <End Role="pago" EntitySet="pago" />
+      <End Role="credito" EntitySet="creditoes" />
+      <End Role="pago" EntitySet="pagoes" />
     </AssociationSet>
     <AssociationSet Name="fk_Usuarioid_usuario" Association="Self.fk_Usuarioid_usuario">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="credito" EntitySet="credito" />
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="credito" EntitySet="creditoes" />
     </AssociationSet>
     <AssociationSet Name="fk_tipo_credito" Association="Self.fk_tipo_credito">
-      <End Role="tipo" EntitySet="tipo" />
-      <End Role="producto" EntitySet="producto" />
+      <End Role="tipo" EntitySet="tipoes" />
+      <End Role="producto" EntitySet="productoes" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

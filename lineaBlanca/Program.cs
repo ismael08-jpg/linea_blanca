@@ -17,7 +17,7 @@ namespace lineaBlanca
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());//new Login()
+            Application.Run(new FrmAlmacen());//new Login()
         }
     }
 }

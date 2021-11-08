@@ -70,6 +70,7 @@ namespace lineaBlanca.vistas
             this.Name = "FrmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInicio";
+            this.Load += new System.EventHandler(this.FrmInicio_Load);
             this.ResumeLayout(false);
 
         }

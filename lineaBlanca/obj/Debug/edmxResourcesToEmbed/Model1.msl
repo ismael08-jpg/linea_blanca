@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="linea_blancaModelStoreContainer" CdmEntityContainer="linea_blancaEntities">
-    <EntitySetMapping Name="categoria">
+    <EntitySetMapping Name="categorias">
       <EntityTypeMapping TypeName="linea_blancaModel.categoria">
         <MappingFragment StoreEntitySet="categoria">
           <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
@@ -9,7 +9,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="cliente">
+    <EntitySetMapping Name="clientes">
       <EntityTypeMapping TypeName="linea_blancaModel.cliente">
         <MappingFragment StoreEntitySet="cliente">
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
@@ -20,7 +20,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="credito">
+    <EntitySetMapping Name="creditoes">
       <EntityTypeMapping TypeName="linea_blancaModel.credito">
         <MappingFragment StoreEntitySet="credito">
           <ScalarProperty Name="id_credito" ColumnName="id_credito" />
@@ -36,7 +36,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="pago">
+    <EntitySetMapping Name="pagoes">
       <EntityTypeMapping TypeName="linea_blancaModel.pago">
         <MappingFragment StoreEntitySet="pago">
           <ScalarProperty Name="id_pago" ColumnName="id_pago" />
@@ -49,7 +49,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="producto">
+    <EntitySetMapping Name="productoes">
       <EntityTypeMapping TypeName="linea_blancaModel.producto">
         <MappingFragment StoreEntitySet="producto">
           <ScalarProperty Name="id_producto" ColumnName="id_producto" />
@@ -61,7 +61,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="linea_blancaModel.sysdiagrams">
+      <EntityTypeMapping TypeName="linea_blancaModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -71,7 +71,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tipo">
+    <EntitySetMapping Name="tipoes">
       <EntityTypeMapping TypeName="linea_blancaModel.tipo">
         <MappingFragment StoreEntitySet="tipo">
           <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
@@ -80,7 +80,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="usuario">
+    <EntitySetMapping Name="usuarios">
       <EntityTypeMapping TypeName="linea_blancaModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />

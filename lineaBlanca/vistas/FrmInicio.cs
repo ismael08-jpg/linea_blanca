@@ -16,5 +16,10 @@ namespace lineaBlanca.vistas
         {
             InitializeComponent();
         }
+
+        private void FrmInicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
