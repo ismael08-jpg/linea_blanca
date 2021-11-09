@@ -109,6 +109,24 @@
     <Compile Include="usuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="vistas\FrmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FrmProductos.Designer.cs">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\FrmTipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FrmTipos.Designer.cs">
+      <DependentUpon>FrmTipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\FrmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FrmCategorias.Designer.cs">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +188,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="vistas\FrmProductos.resx">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FrmTipos.resx">
+      <DependentUpon>FrmTipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vistas\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +259,12 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\product %281%29.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\products.png" />
+    <None Include="Resources\products %281%29.png" />
+    <None Include="Resources\packaging.png" />
+    <None Include="Resources\packaging %281%29.png" />
     <None Include="Resources\logout %282%29.png" />
     <None Include="Resources\logout %283%291.png" />
     <None Include="Resources\logout %283%29.png" />

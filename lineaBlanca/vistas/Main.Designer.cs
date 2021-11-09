@@ -30,11 +30,13 @@ namespace lineaBlanca.vistas
         private void InitializeComponent()
         {
             this.sidebar = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnProductos = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTipos = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCategorias = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
             this.btnClientes = new Guna.UI2.WinForms.Guna2Button();
             this.btnReportes = new Guna.UI2.WinForms.Guna2Button();
+            this.btnProductos = new Guna.UI2.WinForms.Guna2Button();
             this.btnCreditos = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagos = new Guna.UI2.WinForms.Guna2Button();
             this.btnInicio = new Guna.UI2.WinForms.Guna2Button();
@@ -44,6 +46,8 @@ namespace lineaBlanca.vistas
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.sidebar.Controls.Add(this.btnTipos);
+            this.sidebar.Controls.Add(this.btnCategorias);
             this.sidebar.Controls.Add(this.btnLogout);
             this.sidebar.Controls.Add(this.btnUsuarios);
             this.sidebar.Controls.Add(this.btnClientes);
@@ -59,32 +63,69 @@ namespace lineaBlanca.vistas
             this.sidebar.Size = new System.Drawing.Size(179, 577);
             this.sidebar.TabIndex = 2;
             // 
-            // btnProductos
+            // btnTipos
             // 
-            this.btnProductos.BackColor = System.Drawing.Color.Snow;
-            this.btnProductos.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnProductos.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
-            this.btnProductos.CheckedState.Parent = this.btnProductos;
-            this.btnProductos.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnProductos.CustomImages.Parent = this.btnProductos;
-            this.btnProductos.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnProductos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnProductos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnProductos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnProductos.DisabledState.Parent = this.btnProductos;
-            this.btnProductos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnProductos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductos.ForeColor = System.Drawing.Color.White;
-            this.btnProductos.HoverState.Parent = this.btnProductos;
-            this.btnProductos.Location = new System.Drawing.Point(0, 135);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
-            this.btnProductos.PressedDepth = 0;
-            this.btnProductos.ShadowDecoration.Parent = this.btnProductos;
-            this.btnProductos.Size = new System.Drawing.Size(180, 45);
-            this.btnProductos.TabIndex = 3;
-            this.btnProductos.Text = "Productos";
-            this.btnProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTipos.BackColor = System.Drawing.Color.Snow;
+            this.btnTipos.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnTipos.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnTipos.CheckedState.Image = global::lineaBlanca.Properties.Resources.products;
+            this.btnTipos.CheckedState.Parent = this.btnTipos;
+            this.btnTipos.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnTipos.CustomImages.Parent = this.btnTipos;
+            this.btnTipos.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTipos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTipos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTipos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTipos.DisabledState.Parent = this.btnTipos;
+            this.btnTipos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnTipos.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTipos.ForeColor = System.Drawing.Color.White;
+            this.btnTipos.HoverState.Parent = this.btnTipos;
+            this.btnTipos.Image = global::lineaBlanca.Properties.Resources.products__1_;
+            this.btnTipos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTipos.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnTipos.Location = new System.Drawing.Point(0, 225);
+            this.btnTipos.Name = "btnTipos";
+            this.btnTipos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnTipos.PressedDepth = 0;
+            this.btnTipos.ShadowDecoration.Parent = this.btnTipos;
+            this.btnTipos.Size = new System.Drawing.Size(180, 45);
+            this.btnTipos.TabIndex = 9;
+            this.btnTipos.Text = "Tipos ";
+            this.btnTipos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTipos.Click += new System.EventHandler(this.btnTipos_Click);
+            // 
+            // btnCategorias
+            // 
+            this.btnCategorias.BackColor = System.Drawing.Color.Snow;
+            this.btnCategorias.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnCategorias.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnCategorias.CheckedState.Image = global::lineaBlanca.Properties.Resources.product__1_;
+            this.btnCategorias.CheckedState.Parent = this.btnCategorias;
+            this.btnCategorias.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnCategorias.CustomImages.Parent = this.btnCategorias;
+            this.btnCategorias.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCategorias.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCategorias.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCategorias.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCategorias.DisabledState.Parent = this.btnCategorias;
+            this.btnCategorias.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnCategorias.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategorias.ForeColor = System.Drawing.Color.White;
+            this.btnCategorias.HoverState.Parent = this.btnCategorias;
+            this.btnCategorias.Image = global::lineaBlanca.Properties.Resources.product;
+            this.btnCategorias.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCategorias.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnCategorias.Location = new System.Drawing.Point(0, 270);
+            this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnCategorias.PressedDepth = 0;
+            this.btnCategorias.ShadowDecoration.Parent = this.btnCategorias;
+            this.btnCategorias.Size = new System.Drawing.Size(180, 45);
+            this.btnCategorias.TabIndex = 8;
+            this.btnCategorias.Text = "Categorias";
+            this.btnCategorias.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
             // btnLogout
             // 
@@ -101,12 +142,13 @@ namespace lineaBlanca.vistas
             this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogout.DisabledState.Parent = this.btnLogout;
             this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnLogout.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.HoverState.Parent = this.btnLogout;
             this.btnLogout.Image = global::lineaBlanca.Properties.Resources.logout__3_;
             this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLogout.Location = new System.Drawing.Point(0, 315);
+            this.btnLogout.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnLogout.Location = new System.Drawing.Point(0, 405);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnLogout.PressedDepth = 0;
@@ -132,12 +174,13 @@ namespace lineaBlanca.vistas
             this.btnUsuarios.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnUsuarios.DisabledState.Parent = this.btnUsuarios;
             this.btnUsuarios.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnUsuarios.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.HoverState.Parent = this.btnUsuarios;
             this.btnUsuarios.Image = global::lineaBlanca.Properties.Resources.profile_user__1_;
             this.btnUsuarios.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 270);
+            this.btnUsuarios.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 360);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnUsuarios.PressedDepth = 0;
@@ -163,12 +206,13 @@ namespace lineaBlanca.vistas
             this.btnClientes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnClientes.DisabledState.Parent = this.btnClientes;
             this.btnClientes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnClientes.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.HoverState.Parent = this.btnClientes;
             this.btnClientes.Image = global::lineaBlanca.Properties.Resources.customer__1_;
             this.btnClientes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnClientes.Location = new System.Drawing.Point(0, 180);
+            this.btnClientes.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnClientes.Location = new System.Drawing.Point(0, 135);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnClientes.PressedDepth = 0;
@@ -194,12 +238,13 @@ namespace lineaBlanca.vistas
             this.btnReportes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnReportes.DisabledState.Parent = this.btnReportes;
             this.btnReportes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnReportes.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.HoverState.Parent = this.btnReportes;
             this.btnReportes.Image = global::lineaBlanca.Properties.Resources.pie_chart__1_;
             this.btnReportes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReportes.Location = new System.Drawing.Point(0, 225);
+            this.btnReportes.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnReportes.Location = new System.Drawing.Point(0, 315);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnReportes.PressedDepth = 0;
@@ -209,6 +254,38 @@ namespace lineaBlanca.vistas
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // btnProductos
+            // 
+            this.btnProductos.BackColor = System.Drawing.Color.Snow;
+            this.btnProductos.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnProductos.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnProductos.CheckedState.Image = global::lineaBlanca.Properties.Resources.packaging;
+            this.btnProductos.CheckedState.Parent = this.btnProductos;
+            this.btnProductos.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnProductos.CustomImages.Parent = this.btnProductos;
+            this.btnProductos.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnProductos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnProductos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnProductos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnProductos.DisabledState.Parent = this.btnProductos;
+            this.btnProductos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnProductos.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos.ForeColor = System.Drawing.Color.White;
+            this.btnProductos.HoverState.Parent = this.btnProductos;
+            this.btnProductos.Image = global::lineaBlanca.Properties.Resources.packaging__1_;
+            this.btnProductos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnProductos.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnProductos.Location = new System.Drawing.Point(0, 180);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnProductos.PressedDepth = 0;
+            this.btnProductos.ShadowDecoration.Parent = this.btnProductos;
+            this.btnProductos.Size = new System.Drawing.Size(180, 45);
+            this.btnProductos.TabIndex = 3;
+            this.btnProductos.Text = "Productos";
+            this.btnProductos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnCreditos
             // 
@@ -225,11 +302,12 @@ namespace lineaBlanca.vistas
             this.btnCreditos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCreditos.DisabledState.Parent = this.btnCreditos;
             this.btnCreditos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnCreditos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreditos.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreditos.ForeColor = System.Drawing.Color.White;
             this.btnCreditos.HoverState.Parent = this.btnCreditos;
             this.btnCreditos.Image = global::lineaBlanca.Properties.Resources.credit_card__1_;
             this.btnCreditos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCreditos.ImageSize = new System.Drawing.Size(25, 25);
             this.btnCreditos.Location = new System.Drawing.Point(0, 90);
             this.btnCreditos.Name = "btnCreditos";
             this.btnCreditos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -256,11 +334,12 @@ namespace lineaBlanca.vistas
             this.btnPagos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPagos.DisabledState.Parent = this.btnPagos;
             this.btnPagos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnPagos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagos.ForeColor = System.Drawing.Color.White;
             this.btnPagos.HoverState.Parent = this.btnPagos;
             this.btnPagos.Image = global::lineaBlanca.Properties.Resources.money__1_;
             this.btnPagos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPagos.ImageSize = new System.Drawing.Size(25, 25);
             this.btnPagos.Location = new System.Drawing.Point(0, 45);
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -289,11 +368,12 @@ namespace lineaBlanca.vistas
             this.btnInicio.DisabledState.Parent = this.btnInicio;
             this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInicio.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnInicio.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.HoverState.Parent = this.btnInicio;
             this.btnInicio.Image = global::lineaBlanca.Properties.Resources.casa__1_;
             this.btnInicio.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInicio.ImageSize = new System.Drawing.Size(25, 25);
             this.btnInicio.Location = new System.Drawing.Point(0, 0);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -330,5 +410,7 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2Button btnClientes;
         private Guna.UI2.WinForms.Guna2Button btnUsuarios;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
+        private Guna.UI2.WinForms.Guna2Button btnTipos;
+        private Guna.UI2.WinForms.Guna2Button btnCategorias;
     }
 }

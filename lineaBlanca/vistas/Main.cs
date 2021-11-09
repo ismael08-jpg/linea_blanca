@@ -18,6 +18,9 @@ namespace lineaBlanca.vistas
         FrmReportes frmRepos = new FrmReportes();
         FrmClientes frmClientes = new FrmClientes();
         FrmUsuarios frmUsuarios = new FrmUsuarios();
+        FrmCategorias frmCategorias = new FrmCategorias();
+        FrmTipos frmTipos = new FrmTipos();
+        FrmProductos frmProductos = new FrmProductos();
         
         public Main()
         {
@@ -102,6 +105,36 @@ namespace lineaBlanca.vistas
                 login.Show();
 
                 
+            }
+        }
+
+        private void btnTipos_Click(object sender, EventArgs e)
+        {
+            if (btnTipos.Checked)
+            {
+                frmTipos.MdiParent = this;
+                frmTipos.Show();
+                frmTipos.Focus();
+            }
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            if (btnCategorias.Checked)
+            {
+                frmCategorias.MdiParent = this;
+                frmCategorias.Show();
+                frmCategorias.Focus();
+            }
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            if (btnProductos.Checked)
+            {
+                frmProductos.MdiParent = this;
+                frmProductos.Show();
+                frmProductos.Focus();
             }
         }
     }
