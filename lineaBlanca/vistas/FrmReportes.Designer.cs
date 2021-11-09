@@ -29,15 +29,34 @@ namespace lineaBlanca.vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportes));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabCostoVsGanacia = new System.Windows.Forms.TabPage();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Btn_SUMganancias = new Guna.UI2.WinForms.Guna2Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Crvw_SUMGanancias = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txt_idProd = new System.Windows.Forms.MaskedTextBox();
+            this.btn_limpiar = new Guna.UI2.WinForms.Guna2Button();
+            this.Btn_ganancias = new Guna.UI2.WinForms.Guna2Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Crvw_Ganancias = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.tabProductosVendidos = new System.Windows.Forms.TabPage();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.Crvw_Rango = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txt_fin = new System.Windows.Forms.MaskedTextBox();
+            this.txt_inicio = new System.Windows.Forms.MaskedTextBox();
+            this.lbl_fecha = new System.Windows.Forms.Label();
             this.Dtp_fin = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.Dtp_inicio = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -51,11 +70,18 @@ namespace lineaBlanca.vistas
             this.label1 = new System.Windows.Forms.Label();
             this.btn_disponibles = new Guna.UI2.WinForms.Guna2Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+            this.Crvw_Debe = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.Report_Disponibilidad1 = new lineaBlanca.Reportes.Report_Disponibilidad();
             this.Report_Disponibilidad2 = new lineaBlanca.Reportes.Report_Disponibilidad();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TabControl1.SuspendLayout();
+            this.tabCostoVsGanacia.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
+            this.guna2Panel8.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
+            this.guna2Panel7.SuspendLayout();
             this.tabProductosVendidos.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -63,6 +89,9 @@ namespace lineaBlanca.vistas
             this.tabPage1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.guna2Panel10.SuspendLayout();
+            this.guna2Panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2TabControl1
@@ -99,6 +128,8 @@ namespace lineaBlanca.vistas
             // 
             // tabCostoVsGanacia
             // 
+            this.tabCostoVsGanacia.Controls.Add(this.guna2Panel6);
+            this.tabCostoVsGanacia.Controls.Add(this.guna2Panel5);
             this.tabCostoVsGanacia.Location = new System.Drawing.Point(4, 44);
             this.tabCostoVsGanacia.Name = "tabCostoVsGanacia";
             this.tabCostoVsGanacia.Padding = new System.Windows.Forms.Padding(3);
@@ -106,6 +137,188 @@ namespace lineaBlanca.vistas
             this.tabCostoVsGanacia.TabIndex = 0;
             this.tabCostoVsGanacia.Text = "Costos vs Ganancia";
             this.tabCostoVsGanacia.UseVisualStyleBackColor = true;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.Controls.Add(this.label5);
+            this.guna2Panel6.Controls.Add(this.Btn_SUMganancias);
+            this.guna2Panel6.Controls.Add(this.richTextBox2);
+            this.guna2Panel6.Controls.Add(this.guna2Panel8);
+            this.guna2Panel6.Location = new System.Drawing.Point(514, 8);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.ShadowDecoration.Parent = this.guna2Panel6;
+            this.guna2Panel6.Size = new System.Drawing.Size(494, 511);
+            this.guna2Panel6.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(206, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Generar Reporte";
+            // 
+            // Btn_SUMganancias
+            // 
+            this.Btn_SUMganancias.CheckedState.Parent = this.Btn_SUMganancias;
+            this.Btn_SUMganancias.CustomImages.Parent = this.Btn_SUMganancias;
+            this.Btn_SUMganancias.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Btn_SUMganancias.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Btn_SUMganancias.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Btn_SUMganancias.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Btn_SUMganancias.DisabledState.Parent = this.Btn_SUMganancias;
+            this.Btn_SUMganancias.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.Btn_SUMganancias.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Btn_SUMganancias.ForeColor = System.Drawing.Color.White;
+            this.Btn_SUMganancias.HoverState.Parent = this.Btn_SUMganancias;
+            this.Btn_SUMganancias.Location = new System.Drawing.Point(209, 42);
+            this.Btn_SUMganancias.Name = "Btn_SUMganancias";
+            this.Btn_SUMganancias.ShadowDecoration.Parent = this.Btn_SUMganancias;
+            this.Btn_SUMganancias.Size = new System.Drawing.Size(131, 20);
+            this.Btn_SUMganancias.TabIndex = 6;
+            this.Btn_SUMganancias.Text = "Ver";
+            this.Btn_SUMganancias.Click += new System.EventHandler(this.Btn_SUMganancias_Click);
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(3, 3);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(192, 78);
+            this.richTextBox2.TabIndex = 3;
+            this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.Controls.Add(this.Crvw_SUMGanancias);
+            this.guna2Panel8.Location = new System.Drawing.Point(3, 85);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.ShadowDecoration.Parent = this.guna2Panel8;
+            this.guna2Panel8.Size = new System.Drawing.Size(488, 423);
+            this.guna2Panel8.TabIndex = 0;
+            // 
+            // Crvw_SUMGanancias
+            // 
+            this.Crvw_SUMGanancias.ActiveViewIndex = -1;
+            this.Crvw_SUMGanancias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Crvw_SUMGanancias.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Crvw_SUMGanancias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Crvw_SUMGanancias.Location = new System.Drawing.Point(0, 0);
+            this.Crvw_SUMGanancias.Name = "Crvw_SUMGanancias";
+            this.Crvw_SUMGanancias.Size = new System.Drawing.Size(488, 423);
+            this.Crvw_SUMGanancias.TabIndex = 0;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.Controls.Add(this.txt_idProd);
+            this.guna2Panel5.Controls.Add(this.btn_limpiar);
+            this.guna2Panel5.Controls.Add(this.Btn_ganancias);
+            this.guna2Panel5.Controls.Add(this.label4);
+            this.guna2Panel5.Controls.Add(this.richTextBox1);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2Panel5.Controls.Add(this.guna2Panel7);
+            this.guna2Panel5.Location = new System.Drawing.Point(8, 6);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
+            this.guna2Panel5.Size = new System.Drawing.Size(494, 513);
+            this.guna2Panel5.TabIndex = 0;
+            // 
+            // txt_idProd
+            // 
+            this.txt_idProd.Location = new System.Drawing.Point(231, 28);
+            this.txt_idProd.Mask = "999";
+            this.txt_idProd.Name = "txt_idProd";
+            this.txt_idProd.Size = new System.Drawing.Size(100, 20);
+            this.txt_idProd.TabIndex = 8;
+            this.txt_idProd.ValidatingType = typeof(int);
+            // 
+            // btn_limpiar
+            // 
+            this.btn_limpiar.CheckedState.Parent = this.btn_limpiar;
+            this.btn_limpiar.CustomImages.Parent = this.btn_limpiar;
+            this.btn_limpiar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_limpiar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_limpiar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_limpiar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_limpiar.DisabledState.Parent = this.btn_limpiar;
+            this.btn_limpiar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btn_limpiar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_limpiar.ForeColor = System.Drawing.Color.White;
+            this.btn_limpiar.HoverState.Parent = this.btn_limpiar;
+            this.btn_limpiar.Location = new System.Drawing.Point(231, 61);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.ShadowDecoration.Parent = this.btn_limpiar;
+            this.btn_limpiar.Size = new System.Drawing.Size(131, 20);
+            this.btn_limpiar.TabIndex = 7;
+            this.btn_limpiar.Text = "Limpiar";
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
+            // Btn_ganancias
+            // 
+            this.Btn_ganancias.CheckedState.Parent = this.Btn_ganancias;
+            this.Btn_ganancias.CustomImages.Parent = this.Btn_ganancias;
+            this.Btn_ganancias.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Btn_ganancias.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Btn_ganancias.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Btn_ganancias.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Btn_ganancias.DisabledState.Parent = this.Btn_ganancias;
+            this.Btn_ganancias.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.Btn_ganancias.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Btn_ganancias.ForeColor = System.Drawing.Color.White;
+            this.Btn_ganancias.HoverState.Parent = this.Btn_ganancias;
+            this.Btn_ganancias.Location = new System.Drawing.Point(337, 28);
+            this.Btn_ganancias.Name = "Btn_ganancias";
+            this.Btn_ganancias.ShadowDecoration.Parent = this.Btn_ganancias;
+            this.Btn_ganancias.Size = new System.Drawing.Size(131, 20);
+            this.Btn_ganancias.TabIndex = 5;
+            this.Btn_ganancias.Text = "Ver";
+            this.Btn_ganancias.Click += new System.EventHandler(this.Btn_ganancias_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(228, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Ingrese el codigo del Producto";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(6, 3);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(192, 78);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(15, 12);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(0, 0);
+            this.guna2HtmlLabel1.TabIndex = 1;
+            this.guna2HtmlLabel1.Text = null;
+            // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.Controls.Add(this.Crvw_Ganancias);
+            this.guna2Panel7.Location = new System.Drawing.Point(3, 87);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.ShadowDecoration.Parent = this.guna2Panel7;
+            this.guna2Panel7.Size = new System.Drawing.Size(488, 423);
+            this.guna2Panel7.TabIndex = 0;
+            // 
+            // Crvw_Ganancias
+            // 
+            this.Crvw_Ganancias.ActiveViewIndex = -1;
+            this.Crvw_Ganancias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Crvw_Ganancias.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Crvw_Ganancias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Crvw_Ganancias.Location = new System.Drawing.Point(0, 0);
+            this.Crvw_Ganancias.Name = "Crvw_Ganancias";
+            this.Crvw_Ganancias.Size = new System.Drawing.Size(488, 423);
+            this.Crvw_Ganancias.TabIndex = 0;
             // 
             // tabProductosVendidos
             // 
@@ -142,8 +355,9 @@ namespace lineaBlanca.vistas
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.Controls.Add(this.maskedTextBox2);
-            this.guna2Panel3.Controls.Add(this.maskedTextBox1);
+            this.guna2Panel3.Controls.Add(this.txt_fin);
+            this.guna2Panel3.Controls.Add(this.txt_inicio);
+            this.guna2Panel3.Controls.Add(this.lbl_fecha);
             this.guna2Panel3.Controls.Add(this.Dtp_fin);
             this.guna2Panel3.Controls.Add(this.label3);
             this.guna2Panel3.Controls.Add(this.Dtp_inicio);
@@ -155,11 +369,36 @@ namespace lineaBlanca.vistas
             this.guna2Panel3.Size = new System.Drawing.Size(219, 511);
             this.guna2Panel3.TabIndex = 70;
             // 
+            // txt_fin
+            // 
+            this.txt_fin.Location = new System.Drawing.Point(28, 249);
+            this.txt_fin.Mask = "0000/00/00";
+            this.txt_fin.Name = "txt_fin";
+            this.txt_fin.Size = new System.Drawing.Size(100, 20);
+            this.txt_fin.TabIndex = 9;
+            // 
+            // txt_inicio
+            // 
+            this.txt_inicio.Location = new System.Drawing.Point(28, 149);
+            this.txt_inicio.Mask = "0000/00/00";
+            this.txt_inicio.Name = "txt_inicio";
+            this.txt_inicio.Size = new System.Drawing.Size(100, 20);
+            this.txt_inicio.TabIndex = 8;
+            // 
+            // lbl_fecha
+            // 
+            this.lbl_fecha.AutoSize = true;
+            this.lbl_fecha.Location = new System.Drawing.Point(60, 152);
+            this.lbl_fecha.Name = "lbl_fecha";
+            this.lbl_fecha.Size = new System.Drawing.Size(0, 13);
+            this.lbl_fecha.TabIndex = 7;
+            // 
             // Dtp_fin
             // 
             this.Dtp_fin.CheckedState.Parent = this.Dtp_fin;
+            this.Dtp_fin.CustomFormat = "yyyy/MM/dd";
             this.Dtp_fin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Dtp_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Dtp_fin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Dtp_fin.HoverState.Parent = this.Dtp_fin;
             this.Dtp_fin.Location = new System.Drawing.Point(6, 207);
             this.Dtp_fin.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -182,6 +421,7 @@ namespace lineaBlanca.vistas
             // Dtp_inicio
             // 
             this.Dtp_inicio.CheckedState.Parent = this.Dtp_inicio;
+            this.Dtp_inicio.CustomFormat = "yyyy/MM/dd";
             this.Dtp_inicio.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Dtp_inicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Dtp_inicio.HoverState.Parent = this.Dtp_inicio;
@@ -229,30 +469,30 @@ namespace lineaBlanca.vistas
             // 
             this.dgbHistorialPago.AllowUserToAddRows = false;
             this.dgbHistorialPago.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.dgbHistorialPago.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgbHistorialPago.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgbHistorialPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgbHistorialPago.BackgroundColor = System.Drawing.Color.White;
             this.dgbHistorialPago.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgbHistorialPago.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgbHistorialPago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbHistorialPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbHistorialPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgbHistorialPago.ColumnHeadersHeight = 25;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgbHistorialPago.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgbHistorialPago.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgbHistorialPago.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgbHistorialPago.EnableHeadersVisualStyles = false;
             this.dgbHistorialPago.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -358,6 +598,8 @@ namespace lineaBlanca.vistas
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.guna2Panel10);
+            this.tabPage2.Controls.Add(this.guna2Panel9);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(1014, 525);
@@ -365,21 +607,55 @@ namespace lineaBlanca.vistas
             this.tabPage2.Text = "Pagos pendientes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox1
+            // guna2Panel10
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(18, 263);
-            this.maskedTextBox1.Mask = "0000/00/00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 5;
+            this.guna2Panel10.Controls.Add(this.Crvw_Debe);
+            this.guna2Panel10.Location = new System.Drawing.Point(209, 3);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.ShadowDecoration.Parent = this.guna2Panel10;
+            this.guna2Panel10.Size = new System.Drawing.Size(797, 514);
+            this.guna2Panel10.TabIndex = 1;
             // 
-            // maskedTextBox2
+            // Crvw_Debe
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(18, 308);
-            this.maskedTextBox2.Mask = "0000/00/00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox2.TabIndex = 6;
+            this.Crvw_Debe.ActiveViewIndex = -1;
+            this.Crvw_Debe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Crvw_Debe.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Crvw_Debe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Crvw_Debe.Location = new System.Drawing.Point(0, 0);
+            this.Crvw_Debe.Name = "Crvw_Debe";
+            this.Crvw_Debe.Size = new System.Drawing.Size(797, 514);
+            this.Crvw_Debe.TabIndex = 0;
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.Controls.Add(this.guna2Button1);
+            this.guna2Panel9.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.ShadowDecoration.Parent = this.guna2Panel9;
+            this.guna2Panel9.Size = new System.Drawing.Size(200, 514);
+            this.guna2Panel9.TabIndex = 0;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.DisabledState.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Location = new System.Drawing.Point(3, 163);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 0;
+            this.guna2Button1.Text = "Ver Rporte";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // FrmReportes
             // 
@@ -392,6 +668,13 @@ namespace lineaBlanca.vistas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReportes";
             this.guna2TabControl1.ResumeLayout(false);
+            this.tabCostoVsGanacia.ResumeLayout(false);
+            this.guna2Panel6.ResumeLayout(false);
+            this.guna2Panel6.PerformLayout();
+            this.guna2Panel8.ResumeLayout(false);
+            this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
+            this.guna2Panel7.ResumeLayout(false);
             this.tabProductosVendidos.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
@@ -401,6 +684,9 @@ namespace lineaBlanca.vistas
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.guna2Panel10.ResumeLayout(false);
+            this.guna2Panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -408,7 +694,6 @@ namespace lineaBlanca.vistas
         #endregion
 
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
-        private System.Windows.Forms.TabPage tabCostoVsGanacia;
         private System.Windows.Forms.TabPage tabProductosVendidos;
         private Guna.UI2.WinForms.Guna2DataGridView dgbHistorialPago;
         private System.Windows.Forms.TabPage tabPage1;
@@ -428,7 +713,28 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2DateTimePicker Dtp_inicio;
         private Reportes.Report_Disponibilidad Report_Disponibilidad1;
         private Reportes.Report_Disponibilidad Report_Disponibilidad2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TabPage tabCostoVsGanacia;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button Btn_SUMganancias;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Button Btn_ganancias;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer Crvw_SUMGanancias;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer Crvw_Ganancias;
+        private System.Windows.Forms.MaskedTextBox txt_idProd;
+        private Guna.UI2.WinForms.Guna2Button btn_limpiar;
+        private System.Windows.Forms.Label lbl_fecha;
+        private System.Windows.Forms.MaskedTextBox txt_fin;
+        private System.Windows.Forms.MaskedTextBox txt_inicio;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer Crvw_Debe;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
