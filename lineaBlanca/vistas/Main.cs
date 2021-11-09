@@ -103,8 +103,6 @@ namespace lineaBlanca.vistas
                 Login login = new Login();
                 this.Close();
                 login.Show();
-
-                
             }
         }
 

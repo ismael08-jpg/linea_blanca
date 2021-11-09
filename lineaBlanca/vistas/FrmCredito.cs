@@ -514,7 +514,21 @@ namespace lineaBlanca.vistas
 
         private void FrmCredito_Load(object sender, EventArgs e)
         {
-
+            switch (GlovalEntries.role)
+            {
+                case 1://IS admin
+                    btnEditar.Visible = true;
+                    btnEliminar.Visible = true;
+                    break;
+                case 2: //Almacen
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    break;
+                case 3: //Vendedor
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    break;
+            }
         }
 
 

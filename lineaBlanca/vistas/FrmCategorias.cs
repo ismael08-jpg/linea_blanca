@@ -13,11 +13,9 @@ namespace lineaBlanca.vistas
     public partial class FrmCategorias : Form
     {
         public FrmCategorias()
-        {
-            
+        {   
             InitializeComponent();
             initializeForm();
-            
         }
 
         linea_blancaEntities contexto = new linea_blancaEntities();
@@ -72,6 +70,22 @@ namespace lineaBlanca.vistas
 
         private void FrmCategorias_Load_1(object sender, EventArgs e)
         {
+            switch (GlovalEntries.role)
+            {
+                case 1://IS admin
+                    btnEditar.Visible = true;
+                    btnEliminar.Visible = true;
+                    break;
+                case 2: //Almacen
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    break;
+                case 3: //Vendedor
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    break;
+            }
+
             fillDatagrid();
             btnClearFilters.Visible = false;
         }

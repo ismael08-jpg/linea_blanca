@@ -340,5 +340,10 @@ namespace lineaBlanca.vistas
                 btnChangePasword.Text = "Cancelar";
             }
         }
+
+        private void FrmUsuarios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

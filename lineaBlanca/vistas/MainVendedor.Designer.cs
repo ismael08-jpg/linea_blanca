@@ -34,12 +34,14 @@ namespace lineaBlanca.vistas
             this.btnCreditos = new Guna.UI2.WinForms.Guna2Button();
             this.btnPagos = new Guna.UI2.WinForms.Guna2Button();
             this.btnInicio = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.sidebar.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.sidebar.Controls.Add(this.btnLogout);
             this.sidebar.Controls.Add(this.btnClientes);
             this.sidebar.Controls.Add(this.btnCreditos);
             this.sidebar.Controls.Add(this.btnPagos);
@@ -66,11 +68,12 @@ namespace lineaBlanca.vistas
             this.btnClientes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnClientes.DisabledState.Parent = this.btnClientes;
             this.btnClientes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnClientes.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.HoverState.Parent = this.btnClientes;
             this.btnClientes.Image = global::lineaBlanca.Properties.Resources.customer__1_;
             this.btnClientes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnClientes.ImageSize = new System.Drawing.Size(25, 25);
             this.btnClientes.Location = new System.Drawing.Point(0, 135);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -97,11 +100,12 @@ namespace lineaBlanca.vistas
             this.btnCreditos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCreditos.DisabledState.Parent = this.btnCreditos;
             this.btnCreditos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnCreditos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreditos.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreditos.ForeColor = System.Drawing.Color.White;
             this.btnCreditos.HoverState.Parent = this.btnCreditos;
             this.btnCreditos.Image = global::lineaBlanca.Properties.Resources.credit_card__1_;
             this.btnCreditos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCreditos.ImageSize = new System.Drawing.Size(25, 25);
             this.btnCreditos.Location = new System.Drawing.Point(0, 90);
             this.btnCreditos.Name = "btnCreditos";
             this.btnCreditos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -128,11 +132,12 @@ namespace lineaBlanca.vistas
             this.btnPagos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPagos.DisabledState.Parent = this.btnPagos;
             this.btnPagos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnPagos.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagos.ForeColor = System.Drawing.Color.White;
             this.btnPagos.HoverState.Parent = this.btnPagos;
             this.btnPagos.Image = global::lineaBlanca.Properties.Resources.money__1_;
             this.btnPagos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPagos.ImageSize = new System.Drawing.Size(25, 25);
             this.btnPagos.Location = new System.Drawing.Point(0, 45);
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -161,11 +166,12 @@ namespace lineaBlanca.vistas
             this.btnInicio.DisabledState.Parent = this.btnInicio;
             this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInicio.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
-            this.btnInicio.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.HoverState.Parent = this.btnInicio;
             this.btnInicio.Image = global::lineaBlanca.Properties.Resources.casa__1_;
             this.btnInicio.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInicio.ImageSize = new System.Drawing.Size(25, 25);
             this.btnInicio.Location = new System.Drawing.Point(0, 0);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
@@ -176,6 +182,38 @@ namespace lineaBlanca.vistas
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Snow;
+            this.btnLogout.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnLogout.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnLogout.CheckedState.Image = global::lineaBlanca.Properties.Resources.logout__2_;
+            this.btnLogout.CheckedState.Parent = this.btnLogout;
+            this.btnLogout.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnLogout.CustomImages.Parent = this.btnLogout;
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.DisabledState.Parent = this.btnLogout;
+            this.btnLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(82)))), ((int)(((byte)(96)))));
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.HoverState.Parent = this.btnLogout;
+            this.btnLogout.Image = global::lineaBlanca.Properties.Resources.logout__3_;
+            this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLogout.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnLogout.Location = new System.Drawing.Point(0, 532);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
+            this.btnLogout.PressedDepth = 0;
+            this.btnLogout.ShadowDecoration.Parent = this.btnLogout;
+            this.btnLogout.Size = new System.Drawing.Size(180, 45);
+            this.btnLogout.TabIndex = 8;
+            this.btnLogout.Text = "Cerrar Sesión";
+            this.btnLogout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // MainVendedor
             // 
@@ -198,5 +236,6 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2Button btnPagos;
         private Guna.UI2.WinForms.Guna2Button btnInicio;
         private Guna.UI2.WinForms.Guna2Button btnClientes;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

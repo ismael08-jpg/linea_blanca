@@ -227,5 +227,24 @@ namespace lineaBlanca.vistas
             fillDatagrid(true);
             btnClearFilters.Visible = false;
         }
+
+        private void FrmTipos_Load_1(object sender, EventArgs e)
+        {
+            switch (GlovalEntries.role)
+            {
+                case 1://IS admin
+                    btnEditar.Visible = true;
+                    btnEliminar.Visible = true;
+                    break;
+                case 2: //Almacen
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    break;
+                case 3: //Vendedor
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    break;
+            }
+        }
     }
 }

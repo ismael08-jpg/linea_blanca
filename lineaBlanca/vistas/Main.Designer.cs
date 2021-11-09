@@ -148,7 +148,7 @@ namespace lineaBlanca.vistas
             this.btnLogout.Image = global::lineaBlanca.Properties.Resources.logout__3_;
             this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLogout.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnLogout.Location = new System.Drawing.Point(0, 405);
+            this.btnLogout.Location = new System.Drawing.Point(0, 532);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(35)))));
             this.btnLogout.PressedDepth = 0;
