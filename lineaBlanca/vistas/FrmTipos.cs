@@ -21,6 +21,11 @@ namespace lineaBlanca.vistas
             initializeform();
         }
 
+        private void FrmTipos_Click(object sender, EventArgs e)
+        {
+           
+        }
+
         linea_blancaEntities context = new linea_blancaEntities();
         tipo t = new tipo();
         private List<categoria> cate = new List<categoria>();
@@ -228,6 +233,14 @@ namespace lineaBlanca.vistas
             btnClearFilters.Visible = false;
         }
 
+        public void refreshAll()
+        {
+            foreach (var entity in context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
+
         private void FrmTipos_Load_1(object sender, EventArgs e)
         {
             switch (GlovalEntries.role)
@@ -245,6 +258,13 @@ namespace lineaBlanca.vistas
                     btnEliminar.Visible = false;
                     break;
             }
+        }
+
+        private void FrmTipos_Activated(object sender, EventArgs e)
+        {
+            refreshAll();
+            fillcombocategorias();
+            fillDatagrid();
         }
     }
 }

@@ -47,6 +47,7 @@ namespace lineaBlanca.vistas
             this.btnClearFilters = new Guna.UI2.WinForms.Guna2Button();
             this.txtTelefono = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtDui = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgbClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,7 +154,7 @@ namespace lineaBlanca.vistas
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(114, 44);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(108, 44);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(54, 21);
             this.guna2HtmlLabel4.TabIndex = 53;
@@ -407,12 +408,24 @@ namespace lineaBlanca.vistas
             this.txtDui.Size = new System.Drawing.Size(399, 26);
             this.txtDui.TabIndex = 73;
             // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(520, 44);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(56, 21);
+            this.guna2HtmlLabel5.TabIndex = 74;
+            this.guna2HtmlLabel5.Text = "Teléfono";
+            // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 573);
             this.ControlBox = false;
+            this.Controls.Add(this.guna2HtmlLabel5);
             this.Controls.Add(this.txtDui);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.btnClearFilters);
@@ -460,5 +473,6 @@ namespace lineaBlanca.vistas
         private Guna.UI2.WinForms.Guna2Button btnClearFilters;
         private Guna.UI2.WinForms.Guna2TextBox txtTelefono;
         private Guna.UI2.WinForms.Guna2TextBox txtDui;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }

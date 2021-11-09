@@ -29,6 +29,15 @@ namespace lineaBlanca.vistas
             fillComboHistorialClientes();
         }
 
+        private void FrmPagos_Activated(object sender, EventArgs e)
+        {
+            comboClienteReady = false;
+            comboHistorialClienteReady = false;
+            refreshAll();
+            fillComboCliente();
+            fillComboHistorialClientes();
+        }
+
         public void refreshAll()
         {
             foreach (var entity in contexto.ChangeTracker.Entries())
@@ -425,5 +434,12 @@ namespace lineaBlanca.vistas
 
           
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

@@ -24,6 +24,15 @@ namespace lineaBlanca.vistas
             
         }
 
+        private void FrmProductos_Activated(object sender, EventArgs e)
+        {
+            refreshAll();
+            fillDatagrid();
+            comboReady = false;
+            fillcomboCategoria();
+            btnClearFilters.Visible = false;
+        }
+
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
@@ -204,8 +213,6 @@ namespace lineaBlanca.vistas
                 try
                 {
                     producto producto = context.producto.FirstOrDefault(x => x.id_producto == idproducto);
-                    MessageBox.Show(idproducto.ToString());
-
                     if (producto.credito == null)
                     {
                         context.producto.Remove(producto);
@@ -329,5 +336,15 @@ namespace lineaBlanca.vistas
         {
 
         }
+
+        public void refreshAll()
+        {
+            foreach (var entity in context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
+
+        
     }
 }

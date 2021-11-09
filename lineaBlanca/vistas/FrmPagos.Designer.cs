@@ -156,6 +156,7 @@ namespace lineaBlanca.vistas
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Por cobrar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // txtFechaLimite
             // 
@@ -584,6 +585,7 @@ namespace lineaBlanca.vistas
             this.Name = "FrmPagos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPagos";
+            this.Activated += new System.EventHandler(this.FrmPagos_Activated);
             this.guna2TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

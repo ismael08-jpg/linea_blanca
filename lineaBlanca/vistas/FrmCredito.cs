@@ -33,6 +33,14 @@ namespace lineaBlanca.vistas
             fillDatagrid();
         }
 
+        private void FrmCredito_Activated(object sender, EventArgs e)
+        {
+            refreshAll();
+            fillDatagrid();
+            fillComboCliente();
+            fillComboProducto();
+        }
+
         public void refreshAll()
         {
             foreach (var entity in contexto.ChangeTracker.Entries())
@@ -65,7 +73,7 @@ namespace lineaBlanca.vistas
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            initialzeForm();
+            
             txtInteres.ReadOnly = false;
             btnCrear.Enabled = true;
             btnAddProduct.Enabled = true;
@@ -76,7 +84,9 @@ namespace lineaBlanca.vistas
 
             refreshAll();
             clear();
-            fillDatagrid();
+            //fillDatagrid();
+            //fillComboCliente();
+            //fillComboProducto();
         }
 
         private void clear()
@@ -576,5 +586,7 @@ namespace lineaBlanca.vistas
             calcularCuota();
             actualizarTotal();
         }
+
+        
     }
 }

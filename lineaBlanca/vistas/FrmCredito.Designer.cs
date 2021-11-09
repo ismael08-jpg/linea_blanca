@@ -628,6 +628,7 @@ namespace lineaBlanca.vistas
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCredito";
+            this.Activated += new System.EventHandler(this.FrmCredito_Activated);
             this.Load += new System.EventHandler(this.FrmCredito_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgbProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbCreditos)).EndInit();
