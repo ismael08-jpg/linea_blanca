@@ -16,6 +16,7 @@ namespace lineaBlanca
         linea_blancaEntities contexto = new linea_blancaEntities();
         Main main = new Main();
         MainVendedor mainVendendor = new MainVendedor();
+        MainAlmacen mainAlmacen = new MainAlmacen();
 
         public Login()
         {
@@ -59,6 +60,8 @@ namespace lineaBlanca
                         GlovalEntries.idUSer = userId;
                         GlovalEntries.role = role;
                         GlovalEntries.nombre = nombre_user;
+                        this.Hide();
+                        mainAlmacen.Show();
                         //the user role is almacen
                         break;
                     case 3:

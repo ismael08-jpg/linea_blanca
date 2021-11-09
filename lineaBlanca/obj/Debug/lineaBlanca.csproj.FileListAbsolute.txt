@@ -49,3 +49,4 @@ C:\Users\Isma\Desktop\proyecto final\lineaBlanca\obj\Debug\lineaBlanca.pdb
 C:\Users\Isma\Desktop\proyecto final\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmCategorias.resources
 C:\Users\Isma\Desktop\proyecto final\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmTipos.resources
 C:\Users\Isma\Desktop\proyecto final\lineaBlanca\obj\Debug\lineaBlanca.vistas.FrmProductos.resources
+C:\Users\Isma\Desktop\proyecto final\lineaBlanca\obj\Debug\lineaBlanca.vistas.MainAlmacen.resources
